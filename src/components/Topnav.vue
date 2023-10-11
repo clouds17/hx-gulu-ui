@@ -1,6 +1,6 @@
 <template>
     <div class="topnav">
-        <div class="logo">
+        <div class="logo" @click="toggleAside">
             <img :src="$baseImg + 'my-logo2.png'" alt=""/>
         </div>
         <ul class="menu">
@@ -10,8 +10,22 @@
     </div>
 </template>
 
-<script setup>
+<script lang="ts">
+import { inject, Ref } from 'vue'
 
+export default {
+    setup() {
+        const asideVisible = inject<Ref<boolean>>('asideVisible')
+
+        const toggleAside = () => {
+            asideVisible!.value = !asideVisible!.value
+        }
+
+        return {
+            toggleAside
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
