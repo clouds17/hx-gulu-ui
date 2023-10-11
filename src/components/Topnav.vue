@@ -1,8 +1,11 @@
 <template>
     <div class="topnav">
-        <div class="logo" @click="toggleAside">
-            <img :src="$baseImg + 'my-logo2.png'" alt=""/>
+        <div class="logo">
+            <router-link to="/" style="display: flex;">
+                <img :src="$baseImg + 'my-logo2.png'" alt=""/>
+            </router-link>
         </div>
+        <div class="toggleAside" @click="toggleAside"></div>
         <ul class="menu">
             <li>菜单1</li>
             <li>菜单2</li>
@@ -15,6 +18,7 @@ import { inject, Ref } from 'vue'
 
 export default {
     setup() {
+        
         const asideVisible = inject<Ref<boolean>>('asideVisible')
 
         const toggleAside = () => {
@@ -36,11 +40,11 @@ export default {
   position: relative;
   z-index: 10;
   align-items: center;
+  justify-content: center;
   > .logo {
     max-width: 6em;
     margin-right: auto;
-    display: flex;
-    > img {
+    img {
         height: 40px;
     }
   }
@@ -50,6 +54,28 @@ export default {
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+    }
+  }
+  > .toggleAside {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background-color: red;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @media screen and (max-width: 500px) {
+    > .menu { display: none; }
+    > .logo { 
+        margin: 0 auto;
+        img {
+            height: 30px;
+        }
+    }
+    > .toggleAside {
+        display: inline-block;
     }
   }
 }
