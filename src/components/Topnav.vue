@@ -19,9 +19,16 @@
   background: pink;
   display: flex;
   padding: 16px;
+  position: relative;
+  z-index: 10;
+  align-items: center;
   > .logo {
     max-width: 6em;
     margin-right: auto;
+    display: flex;
+    > img {
+        height: 40px;
+    }
   }
   > .menu {
     display: flex;
