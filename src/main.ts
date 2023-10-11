@@ -8,11 +8,17 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            component: () => import('./components/Hunag.vue')
+            component: () => import('./views/Home.vue')
+        },
+        {
+            path: '/doc',
+            component: () => import('./views/Doc.vue')
         }
     ]
 })
 
 const app = createApp(App)
+app.config.globalProperties.$baseImg = 'http://testpc.no19.35nic.com/urlproject/hx-gulu-ui/images/'
+
 app.use(router)
 app.mount('#app')
