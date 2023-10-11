@@ -1,11 +1,6 @@
 <template>
     <div>
-        <div class="topnav">
-            <div class="logo">
-                <img :src="$baseImg + 'my-logo2.png'" alt=""/>
-            </div>
-            <div class="menu"></div>
-        </div>
+        <Topnav></Topnav>
         <div class="banner">
             <h1>小黄VUE3造轮子 </h1>
             <h2>自己做得一个UI框架</h2>
@@ -17,8 +12,13 @@
     </div>
 </template>
 
-<script setup>
-
+<script lang="ts">
+import Topnav from '../components/Topnav.vue';
+export default {
+    components: { 
+        Topnav
+    }
+}
 </script>
 
 <style lang="scss" scoped>
