@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Switch :modelValue="value" @update:modelValue="value = $event" />
+        <Switch v-model="value"  style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949" />
         <div>{{ value ? '打开' : '关闭' }}</div>
 
     </div>
