@@ -13,23 +13,23 @@ export const router = createRouter({
             children: [
                 {
                     path: '',
-                    component: () => import('@/views/doc/Index.vue')
+                    component: () => import('@/views/doc/DocPage.vue')
                 },
                 {
                     path: 'switch',
-                    component: () => import('@/views/doc/Switch.vue')
+                    component: () => import('@/views/doc/SwitchPage.vue')
                 },
                 {
                     path: 'button',
-                    component: () => import('@/views/doc/Button.vue')
+                    component: () => import('@/views/doc/ButtonPage.vue')
                 },
                 {
                     path: 'dialog',
-                    component: () => import('@/views/doc/Dialog.vue')
+                    component: () => import('@/views/doc/DialogPage.vue')
                 },
                 {
                     path: 'tabs',
-                    component: () => import('@/views/doc/Tabs.vue')
+                    component: () => import('@/views/doc/TabsPage.vue')
                 }
             ]
         },
