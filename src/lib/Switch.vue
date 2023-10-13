@@ -78,11 +78,10 @@ import { ref, watch } from 'vue';
 
         emit('update:modelValue', !props.modelValue)
     }
-    
+
     watch(
         () => props.modelValue,
         (newValue) => {
-            console.log('执行了change', newValue)
             emit('change', newValue)
         }
     )

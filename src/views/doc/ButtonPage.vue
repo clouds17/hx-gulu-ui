@@ -1,16 +1,14 @@
 <template>
     <div>
-        button页面
+        <Button @click="onClick">你好呀</Button>
     </div>
 </template>
 
-<script>
-export default {
-    setup () {
-        
+<script lang="ts" setup>
+import Button from '@/lib/Button.vue';
 
-        return {}
-    }
+const onClick = () => {
+    console.log('触发了')
 }
 </script>
 
