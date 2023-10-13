@@ -1,17 +1,12 @@
 <template>
     <div>
-        dialog页面
+        <DialogVue />
     </div>
 </template>
 
-<script>
-export default {
-    setup () {
-        
+<script setup lang="ts">
+import DialogVue from '@/lib/Dialog.vue';
 
-        return {}
-    }
-}
 </script>
 
 <style lang="scss" scoped>
