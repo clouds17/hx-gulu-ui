@@ -116,6 +116,10 @@ import { ref, watch } from 'vue';
         }
     }
 
+    & + & {
+        margin-left: 8px;
+    }
+
  }
 
 button {

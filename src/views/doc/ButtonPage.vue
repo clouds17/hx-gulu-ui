@@ -1,6 +1,9 @@
 <template>
     <div>
-        <Button @click="onClick">你好呀</Button>
+        <Button >你好呀</Button>
+        <Button theme="button">你好呀</Button>
+        <Button theme="link">你好呀</Button>
+        <Button theme="text">你好呀</Button>
     </div>
 </template>
 
