@@ -1,38 +1,39 @@
 <template>
-    <div class="btnStyle" :style="{'--init-size': initSize}">
+    <div class="hx-switch" :style="{'--init-size': initSize}">
         <span 
             v-if="inactiveText && !inlinePrompt"
-            class="inactive-text" 
-            :class="{active: !modelValue}"
+            class="hx-switch-inactive__text" 
+            :class="{'hx-switch-active': !modelValue}"
         >{{ inactiveText }}</span>
         <button 
             :style="{width: width ? width + 'px' : ''}"
             v-bind="$attrs"
             @click="toggle" 
-            :class="{ checked: modelValue, inlinePromptClass: inlinePrompt, disabled: disabled }"
+            class="hx-switch-btn"
+            :class="classes"
         >
             <small 
-                class="inlinePrompt-text" 
-                :class="{ checked: modelValue }"
+                class="hx-switch-inlinePrompt__text" 
+                :class="{ 'hx-switch-checked': modelValue }"
                 v-if="inactiveText && inlinePrompt && !modelValue"
             >{{ inactiveText }}</small>
             <small 
-                class="inlinePrompt-text" 
-                :class="{ checked: modelValue }"
+                class="hx-switch-inlinePrompt__text" 
+                :class="{ 'hx-switch-checked': modelValue }"
                 v-if="activeText && inlinePrompt && modelValue"
             >{{ activeText }}</small>
             <span></span>
         </button>
         <span 
             v-if="activeText && !inlinePrompt"
-            class="active-text" 
-            :class="{active: modelValue}"
+            class="hx-switch-active__text" 
+            :class="{'hx-switch-active': modelValue}"
         >{{ activeText }}</span>
     </div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
     defineOptions({
       inheritAttrs: false
     })
@@ -42,10 +43,10 @@ import { ref, watch } from 'vue';
             default: false
         },
         // 尺寸
-        // 'large' | 'default' | 'small' 
+        // 'large' | 'normal' | 'small' 
         size: {
             type: String,
-            default: 'default'
+            default: 'normal'
         },
         width: [String, Number],
         // 文字描述
@@ -79,6 +80,14 @@ import { ref, watch } from 'vue';
         emit('update:modelValue', !props.modelValue)
     }
 
+    const classes = computed(() => {
+        return {
+            'hx-switch-checked': props.modelValue, 
+            'hx-switch-inlinePrompt': props.inlinePrompt, 
+            'hx-switch-disabled': props.disabled,
+        }
+    })
+    
     watch(
         () => props.modelValue,
         (newValue) => {
@@ -96,22 +105,22 @@ import { ref, watch } from 'vue';
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
  $h: var(--init-size);
  $h2: calc($h - 4px);
 
- .btnStyle {
+ .hx-switch {
     --el-switch-off-color: #bfbfbf;
     --el-switch-on-color: #1890ff;
 
     display: inline-block;
 
-    .active-text,
-    .inactive-text {
+    .hx-switch-active__text,
+    .hx-switch-inactive__text {
         font-size: calc($h - 10px);
         padding: 0 8px;
         vertical-align: bottom;
-        &.active {
+        &.hx-switch-active {
             color: var(--el-switch-on-color);
         }
     }
@@ -120,78 +129,80 @@ import { ref, watch } from 'vue';
         margin-left: 8px;
     }
 
- }
-
-button {
+    .hx-switch-btn {
    
-    height: $h;
-    min-width: calc($h * 2);
-    border: none;
-    background-color: var(--el-switch-off-color);
-    border-radius: calc($h / 2);
-    position: relative;
-    cursor: pointer;
-    transition: all .25s linear;
-
-    > span {
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        height: $h2;
-        width: $h2;
-        background-color: #fff;
-        border-radius: calc($h2 / 2);
+        height: $h;
+        min-width: calc($h * 2);
+        border: none;
+        background-color: var(--el-switch-off-color);
+        border-radius: calc($h / 2);
+        position: relative;
+        cursor: pointer;
         transition: all .25s linear;
-    }
 
-    &.checked {
-        background-color: var(--el-switch-on-color);
         > span {
-            left: calc(100% - $h2 - 2px);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            height: $h2;
+            width: $h2;
+            background-color: #fff;
+            border-radius: calc($h2 / 2);
+            transition: all .25s linear;
         }
+
+        &.hx-switch-checked {
+            background-color: var(--el-switch-on-color);
+            > span {
+                left: calc(100% - $h2 - 2px);
+            }
+            &:active {
+                > span {
+                    width: calc($h2 + 4px);
+                    margin-left: -4px;
+                }
+            }
+            
+        }
+        &:focus {
+            outline: none;
+        }
+
         &:active {
             > span {
                 width: calc($h2 + 4px);
-                margin-left: -4px;
             }
         }
-        
-    }
-    &:focus {
-        outline: none;
-    }
 
-    &:active {
-        > span {
-            width: calc($h2 + 4px);
-        }
-    }
-
-    &.inlinePromptClass {
-        width: auto;
-        > .inlinePrompt-text {
-            font-size: 12px;
-            color: #fff;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            padding-left: calc($h2 + 6px);
-            display: block;
-            padding-right: 6px;
-            text-align: left;
-            &.checked {
-                padding-left: 6px;
-                padding-right: calc($h2 + 6px);
-                text-align: right;
+        &.hx-switch-inlinePrompt {
+            width: auto;
+            > .hx-switch-inlinePrompt__text {
+                font-size: 12px;
+                color: #fff;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding-left: calc($h2 + 6px);
+                display: block;
+                padding-right: 6px;
+                text-align: left;
+                &.hx-switch-checked {
+                    padding-left: 6px;
+                    padding-right: calc($h2 + 6px);
+                    text-align: right;
+                }
             }
         }
-    }
 
-    &.disabled {
-        opacity: .6;
-        cursor: no-drop;
-    }
-}
+        &.hx-switch-disabled {
+            opacity: .6;
+            cursor: no-drop;
+        }
+        }
+
+ }
+
+
 
 
 </style>

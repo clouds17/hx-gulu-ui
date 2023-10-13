@@ -11,6 +11,7 @@
         <Switch
             v-model="value2"
             class="mb-2"
+            size="large"
             style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
             active-text="Pay by month"
             inactive-text="Pay by year"
@@ -20,6 +21,7 @@
         <Switch
             v-model="value3"
             inline-prompt
+            size="small"
             active-text="是"
             inactive-text="否"
         />

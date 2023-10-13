@@ -146,3 +146,132 @@ const value2 = ref(true)
 </script>
 ```
 
+
+
+
+
+## Button 按钮
+
+常用的操作按钮。
+
+### 基本用法
+
+#### 尺寸  size
+
+```vue
+//  large | normal | small
+<template>
+    <div>
+        <Button size='large' >large</Button>
+        <Button>normal</Button>
+        <Button size='small'>small</Button>
+    </div>
+</template>
+
+```
+
+#### 颜色等级  level
+
+```vue
+// 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
+<template>
+	<div>
+		<Button level="default" >default</Button>
+        <Button level="primary">primary</Button>
+        <Button level="success" >success</Button>
+        <Button level="info" >info</Button>
+        <Button level="warning" >warning</Button>
+        <Button level="danger"  >danger</Button>
+	</div>
+</template>
+```
+
+
+
+#### 是否空心  plain
+
+```vue
+<template>
+	<div>
+		<Button plain level="default" >default</Button>
+        <Button plain level="primary">primary</Button>
+        <Button plain level="success" >success</Button>
+        <Button plain level="info" >info</Button>
+        <Button plain level="warning" >warning</Button>
+        <Button plain level="danger"  >danger</Button>
+	</div>
+</template>
+```
+
+#### 是否圆角 round
+
+```vue
+<template>
+	<div>
+		<Button round plain level="default" >default</Button>
+        <Button round plain level="primary">primary</Button>
+        <Button round plain level="success" >success</Button>
+        <Button round plain level="info" >info</Button>
+        <Button round plain level="warning" >warning</Button>
+        <Button round plain level="danger"  >danger</Button>
+	</div>
+</template>
+```
+
+
+
+### 类型
+
+theme： button | link | text
+
+```vue
+<template>
+	<div>
+		<Button level="default" >default</Button>
+        <Button theme="button" level="primary">primary</Button>
+        <Button theme="link " level="success" >success</Button>
+        <Button theme="link " level="info" >info</Button>
+        <Button theme="text" level="warning" >warning</Button>
+        <Button theme="text" level="danger"  >danger</Button>
+	</div>
+</template>
+```
+
+
+
+### 禁用
+
+disabled
+
+```vue
+<template>
+	<div>
+		<Button disabled level="default" >default</Button>
+        <Button disabled theme="button" level="primary">primary</Button>
+        <Button disabled theme="link " level="success" >success</Button>
+        <Button disabled theme="link " level="info" >info</Button>
+        <Button disabled theme="text" level="warning" >warning</Button>
+        <Button disabled theme="text" level="danger"  >danger</Button>
+	</div>
+</template>
+```
+
+
+
+### 加载中
+
+loading
+
+```vue
+<template>
+	<div>
+		<Button loading level="default" >default</Button>
+        <Button loading theme="button" level="primary">primary</Button>
+        <Button loading theme="link " level="success" >success</Button>
+        <Button loading theme="link " level="info" >info</Button>
+        <Button loading theme="text" level="warning" >warning</Button>
+        <Button loading theme="text" level="danger"  >danger</Button>
+	</div>
+</template>
+```
+

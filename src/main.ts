@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import '@/lib/style/hxUi.scss'
 import './style.scss'
 import App from './App.vue'
 import { router } from './router'
