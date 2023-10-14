@@ -275,3 +275,121 @@ loading
 </template>
 ```
 
+
+
+## Dialog弹框
+
+### 基础用法
+
+Dialog 弹出一个对话框，适合需要定制性更大的场景。
+
+需要设置 `model-value / v-model` 属性，它接收 `Boolean`，当为 `true` 时显示 Dialog。
+
+`title` 属性设置弹框标题。
+
+ `width` 属性设置弹框大小。
+
+`submit-text` 属性设置确认按钮的文字
+
+`cancel-text` 属性设置取消按钮的文字
+
+`@onSubmit`事件是点击确认事件
+
+`@onCancel` 事件是点击取消事件
+
+```vue
+<template>
+  <DialogVue 
+    v-model="visible" 
+    title="小黄的title"
+    width="600px"
+    submit-text="肯定"
+    cancel-text="否定"
+    @onSubmit="onSubmit"
+    @onCancel="onCancel"
+  >
+            <p>内容一</p>
+            <p>内容二</p>
+            
+   </DialogVue>
+</template>
+<script setup lang="ts">
+	const visible = ref(false)
+</script>
+```
+
+
+
+### 自定义头部和底部
+
+设置了`title`具名插槽 和 `footer` 具名插槽，可以自定义头部和底部
+
+```
+<template>
+   <DialogVue 
+       v-model="visible" 
+   >
+        <template #title>
+            <h1>我加的标题</h1>
+        </template>
+        <p>内容一</p>
+        <p>内容二</p>
+		<template #footer>
+        	<Button level="primary" @click="">我点确定</Button>
+        	<Button plain @click="">我点取消</Button>
+        </template>
+   </DialogVue>
+</template>
+<script setup lang="ts">
+	const visible = ref(false)
+</script>
+```
+
+
+
+### 点击空白部分是否关闭弹框
+
+属性 `close-on-click-overlay` 默认 `true`
+
+ ```
+<template>
+   <DialogVue 
+       v-model="visible" 
+       :close-on-click-overlay = "false"
+   >
+        <p>内容一</p>
+        <p>内容二</p>
+   </DialogVue>
+</template>
+<script setup lang="ts">
+	const visible = ref(false)
+</script>
+ ```
+
+
+
+### 关闭之前得函数
+
+属性 `beforeClose` 是一个函数, return false 时 不会关闭弹框
+
+```
+<template>
+   <DialogVue 
+       v-model="visible" 
+       :close-on-click-overlay = "false"
+       :beforeClose = "onBeforeClose"
+   >
+        <p>内容一</p>
+        <p>内容二</p>
+   </DialogVue>
+</template>
+<script setup lang="ts">
+	const visible = ref(false)
+	const onBeforeClose = () => {
+		// 可以进行验证啥的，返回值不是false时， 函数执行完关闭弹框
+		// 返回值 是 false时，不关闭弹框
+		return false
+	}
+</script>
+```
+

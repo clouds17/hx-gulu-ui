@@ -1,16 +1,17 @@
 <template>
     <div>
-        <Button @click="toggle">按钮</Button>
+        <Button @click="open">按钮</Button>
         <DialogVue 
             v-model="visible" 
             title="小黄的title"
             :close-on-click-overlay="false"
+            width="600px"
             submit-text="肯定"
             cancel-text="否定"
             @onSubmit="onSubmit"
             @onCancel="onCancel"
         >
-            <template #header>
+            <template #title>
                 <h1>我加的标题</h1>
             </template>
             <p>内容一</p>
@@ -45,7 +46,8 @@ import Button from '@/lib/Button.vue';
 
 const visible = ref(false)
 
-const toggle = () => visible.value = !visible.value
+const open = () => visible.value = true
+
 
 const onBeforeClose = () => {
    console.log('aaaaa')

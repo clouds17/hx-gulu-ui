@@ -2,10 +2,12 @@
     <Teleport to="#app">
         <div class=" hx-dialog-overlay" :class="overlayClass">
             <div class="hx-dialog-mask" @click.stop="onClickOverlay" :class="modelValue ? 'hx-dialog-mask__show' : 'hx-dialog-mask__hide'"></div>
-            <div class="hx-dialog-wrapper" :class="modelValue ? 'hx-dialog-wrapper__show' : 'hx-dialog-wrapper__hide' "> 
+            <div class="hx-dialog-wrapper" 
+                :style="{ width: width }"
+                :class="modelValue ? 'hx-dialog-wrapper__show' : 'hx-dialog-wrapper__hide' "> 
                     <div class="hx-dialog">
                         <header>
-                            <slot name="header"> {{ title }}</slot>
+                            <slot name="title"> {{ title }}</slot>
                             <span class="hx-dialog-close" @click="close"></span>
                         </header>
                         <main>
@@ -50,6 +52,10 @@ const props = defineProps({
     cancelText: {
         type: String,
         default: '取消'
+    },
+    width: {
+        type: String,
+        default: '30%'
     }
 })
 
@@ -94,6 +100,7 @@ watch(
     () => props.modelValue,
     (newValue) => {
         if (newValue) {
+            console.log('这里监听')
             open()
         } else {
             changeOverlayClass()
@@ -181,8 +188,7 @@ $border-color: #d9d9d9;
     background-color: #fff;
     border-radius: $radius;
     box-shadow: 0 0 3px fade_out(black, 0.5);
-    min-width: 400px;
-    max-width: 90%;
+    
     
 
     &-wrapper {
@@ -192,6 +198,8 @@ $border-color: #d9d9d9;
         transform: translateX(-50%);
         z-index: 2011;
         opacity: 0;
+        min-width: 350px;
+        max-width: 90%;
         &.hx-dialog-wrapper__show {
             animation: showPopupBody 0.25s linear both;
         }
