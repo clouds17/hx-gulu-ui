@@ -43,10 +43,28 @@
 import DialogVue from '@/lib/Dialog.vue';
 import { ref } from 'vue';
 import Button from '@/lib/Button.vue';
+import { openDialog } from '@/lib/openDialog.ts';
 
 const visible = ref(false)
 
 const open = () => visible.value = true
+// const open = () => {
+//     openDialog({
+//         title: '我定义的标题',
+//         mainText: '我定义的内容',
+//         width: '40%',
+//         submitText: '同意',
+//         cancelText: '拒绝',
+//         closeOnClickOverlay: false,
+//         submit: () => {
+//             console.log('submit')
+//         },
+//         cancel: () => {
+//             console.log('cancel')
+//         }
+//     })
+// }
+
 
 
 const onBeforeClose = () => {
@@ -62,7 +80,7 @@ const onSubmit =  () => {
 }
 
 const onCancel =  () => {
-    visible.value = false
+    // visible.value = false
 }
 
 </script>

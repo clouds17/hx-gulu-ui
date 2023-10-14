@@ -393,3 +393,41 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 </script>
 ```
 
+
+
+### 一句代码打开 Dialog
+
+类似 ElMessageBox 消息弹框
+
+```
+<template>
+    <div>
+        <Button @click="open">按钮</Button>
+    </div>
+</template>
+
+<script setup lang="ts">
+
+import { openDialog } from '@/lib/openDialog.ts';
+
+const open = () => {
+    openDialog({
+        title: '我定义的标题',
+        mainText: '我定义的内容',
+        width: '40%',
+        submitText: '同意',
+        cancelText: '拒绝',
+        closeOnClickOverlay: false,
+        submit: () => {
+            console.log('submit')
+        },
+        cancel: () => {
+            console.log('cancel')
+        }
+    })
+}
+
+</script>
+
+```
+

@@ -1,17 +1,19 @@
 <template>
     <Teleport to="#app">
-        <div class=" hx-dialog-overlay" :class="overlayClass">
+        <div class=" hx-dialog-overlay" :class="modelValue ? 'hx-dialog-overlay__show' : 'hx-dialog-overlay__none'">
             <div class="hx-dialog-mask" @click.stop="onClickOverlay" :class="modelValue ? 'hx-dialog-mask__show' : 'hx-dialog-mask__hide'"></div>
             <div class="hx-dialog-wrapper" 
                 :style="{ width: width }"
                 :class="modelValue ? 'hx-dialog-wrapper__show' : 'hx-dialog-wrapper__hide' "> 
-                    <div class="hx-dialog">
+                    <div class="hx-dialog" >
                         <header>
                             <slot name="title"> {{ title }}</slot>
                             <span class="hx-dialog-close" @click="close"></span>
                         </header>
                         <main>
-                            <slot />
+                            <slot >
+                                {{ mainText }}
+                            </slot>
                         </main>
                         <footer>
                             <slot name="footer">
@@ -56,27 +58,24 @@ const props = defineProps({
     width: {
         type: String,
         default: '30%'
+    },
+    mainText: {
+        type: String,
+        default: '内容'
+    },
+    submit: {
+        type: Function
+    },
+    cancel: {
+        type: Function
     }
 })
 
 
 const emit = defineEmits(['update:modelValue', 'onSubmit', 'onCancel'])
 
-const overlayClass = ref('hx-dialog-overlay__none')
-
 const open = () => {
-    overlayClass.value = 'hx-dialog-overlay__show'
-}
-
-// 关闭的时候改变最外面的罩子
-const changeOverlayClass = () => {
-    if (overlayClass.value !== 'hx-dialog-overlay__show')
-        return false;
-    console.log('我执行了')
-    overlayClass.value = 'hx-dialog-overlay__hide'
-    setTimeout(() => {
-        overlayClass.value = 'hx-dialog-overlay__none'
-    }, 300);
+    emit('update:modelValue', true)
 }
 
 const close = () => {
@@ -84,37 +83,38 @@ const close = () => {
     if (props.beforeClose && props.beforeClose() == false) {
         return false
     }
-
-    changeOverlayClass()
     emit('update:modelValue', false)
 
 }
-
+// 点击外面的罩子是否关闭
 const onClickOverlay = () => {
     if (props.closeOnClickOverlay) {
         close()
     }
 }
 
-watch(
-    () => props.modelValue,
-    (newValue) => {
-        if (newValue) {
-            console.log('这里监听')
-            open()
-        } else {
-            changeOverlayClass()
-        }
-    }
-)
 
 const onSubmit = () => {
+    // 如果有传入subnit函数就执行, 返回值不是 false，则直接关闭
+    if (props.submit?.() !== false) {
+        close()
+    }
     emit('onSubmit')
 }
 
 const onCancel = () => {
+    // 如果有传入cancel函数就执行, 返回值不是 false，则直接关闭
+    if (props.cancel && props.cancel() !== false) {
+        console.log('执行了这里了', props?.cancel)
+        close()
+    }
     emit('onCancel')
 }
+
+defineExpose({
+    close,
+    open
+})
 
 </script>
 
@@ -132,6 +132,14 @@ $border-color: #d9d9d9;
     z-index: 2001;
     transition: all 1s;
 }
+@keyframes delay {
+    0% {
+        display: block;
+    }
+    100% {
+        display: none;
+    }
+}
 .hx-dialog-overlay {
     z-index: 2000;
     display: none;
@@ -143,6 +151,7 @@ $border-color: #d9d9d9;
     }
     &__none {
         display: none;
+        animation: delay .3s forwards;
     }
 }
 .hx-dialog-mask {
