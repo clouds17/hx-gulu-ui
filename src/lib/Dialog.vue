@@ -1,6 +1,6 @@
 <template>
     <div class=" hx-dialog-overlay" :class="overlayClass">
-        <div class="hx-dialog-mask" @click.stop="close" :class="modelValue ? 'hx-dialog-mask__show' : 'hx-dialog-mask__hide'"></div>
+        <div class="hx-dialog-mask" @click.stop="onClickOverlay" :class="modelValue ? 'hx-dialog-mask__show' : 'hx-dialog-mask__hide'"></div>
         <div class="hx-dialog-wrapper" :class="modelValue ? 'hx-dialog-wrapper__show' : 'hx-dialog-wrapper__hide' "> 
                 <div class="hx-dialog">
                     <header>
@@ -12,8 +12,8 @@
                         <p>第二行字</p>
                     </main>
                     <footer>
-                        <Button level="primary">OK</Button>
-                        <Button plain>Cancel</Button>
+                        <Button level="primary" @click="onSubmit">OK</Button>
+                        <Button plain @click="onCancel">Cancel</Button>
                     </footer>
                 </div>
             </div>
@@ -28,11 +28,18 @@ const props = defineProps({
     modelValue: {
         type: Boolean,
         default: false
+    },
+    closeOnClickOverlay: {
+        type: Boolean,
+        default: true
+    },
+    beforeClose: {
+        type: Function
     }
 })
 
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'onSubmit', 'onCancel'])
 
 const overlayClass = ref('hx-dialog-overlay__none')
 
@@ -41,12 +48,23 @@ const open = () => {
 }
 
 const close = () => {
+    // 如果存在，并且返回了false，说明不关闭
+    if (props.beforeClose && props.beforeClose() == false) {
+        return false
+    }
+
     overlayClass.value = 'hx-dialog-overlay__hide'
     setTimeout(() => {
         overlayClass.value = 'hx-dialog-overlay__none'
     }, 300);
     emit('update:modelValue', false)
 
+}
+
+const onClickOverlay = () => {
+    if (props.closeOnClickOverlay) {
+        close()
+    }
 }
 
 watch(
@@ -57,6 +75,14 @@ watch(
         }
     }
 )
+
+const onSubmit = () => {
+    emit('onSubmit')
+}
+
+const onCancel = () => {
+    emit('onCancel')
+}
 
 </script>
 
