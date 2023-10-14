@@ -4,16 +4,17 @@
         <div class="hx-dialog-wrapper" :class="modelValue ? 'hx-dialog-wrapper__show' : 'hx-dialog-wrapper__hide' "> 
                 <div class="hx-dialog">
                     <header>
-                        标题
+                        {{ title }}
                         <span class="hx-dialog-close" @click="close"></span>
                     </header>
                     <main>
-                        <p>第一行字</p>
-                        <p>第二行字</p>
+                        <slot />
                     </main>
                     <footer>
-                        <Button level="primary" @click="onSubmit">OK</Button>
-                        <Button plain @click="onCancel">Cancel</Button>
+                        <slot name="footer">
+                            <Button level="primary" @click="onSubmit">{{ submitText }}</Button>
+                            <Button plain @click="onCancel">{{ cancelText }}</Button>
+                        </slot>
                     </footer>
                 </div>
             </div>
@@ -35,6 +36,18 @@ const props = defineProps({
     },
     beforeClose: {
         type: Function
+    },
+    title: {
+        type: String,
+        default: '提示'
+    },
+    submitText: {
+        type: String,
+        default: '确定'
+    },
+    cancelText: {
+        type: String,
+        default: '取消'
     }
 })
 
@@ -47,16 +60,24 @@ const open = () => {
     overlayClass.value = 'hx-dialog-overlay__show'
 }
 
+// 关闭的时候改变最外面的罩子
+const changeOverlayClass = () => {
+    if (overlayClass.value !== 'hx-dialog-overlay__show')
+        return false;
+    console.log('我执行了')
+    overlayClass.value = 'hx-dialog-overlay__hide'
+    setTimeout(() => {
+        overlayClass.value = 'hx-dialog-overlay__none'
+    }, 300);
+}
+
 const close = () => {
     // 如果存在，并且返回了false，说明不关闭
     if (props.beforeClose && props.beforeClose() == false) {
         return false
     }
 
-    overlayClass.value = 'hx-dialog-overlay__hide'
-    setTimeout(() => {
-        overlayClass.value = 'hx-dialog-overlay__none'
-    }, 300);
+    changeOverlayClass()
     emit('update:modelValue', false)
 
 }
@@ -72,6 +93,8 @@ watch(
     (newValue) => {
         if (newValue) {
             open()
+        } else {
+            changeOverlayClass()
         }
     }
 )

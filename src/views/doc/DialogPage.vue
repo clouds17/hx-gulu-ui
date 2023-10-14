@@ -3,10 +3,20 @@
         <Button @click="toggle">按钮</Button>
         <DialogVue 
             v-model="visible" 
+            title="小黄的title"
             :close-on-click-overlay="false"
+            submit-text="肯定"
+            cancel-text="否定"
             @onSubmit="onSubmit"
             @onCancel="onCancel"
-        />
+        >
+            <p>内容一</p>
+            <p>内容二</p>
+            <!-- <template #footer>
+                <Button level="primary" @click="">我点确定</Button>
+                <Button plain @click="">我点取消</Button>
+            </template> -->
+        </DialogVue>
 
         <!-- <el-dialog
             title=""
