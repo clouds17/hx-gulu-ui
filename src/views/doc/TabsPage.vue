@@ -1,17 +1,16 @@
 <template>
     <div>
-        tabs页面
+        <Tabs>
+            <Tab title="tab1">内容1</Tab>
+            <Tab title="tab2">内容2</Tab>
+        </Tabs>
     </div>
 </template>
 
-<script>
-export default {
-    setup () {
-        
+<script setup>
+import Tabs from '@/lib/Tabs.vue';
+import Tab from '@/lib/Tab.vue';
 
-        return {}
-    }
-}
 </script>
 
 <style lang="scss" scoped>
