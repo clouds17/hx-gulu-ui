@@ -1,24 +1,26 @@
 <template>
-    <div class=" hx-dialog-overlay" :class="overlayClass">
-        <div class="hx-dialog-mask" @click.stop="onClickOverlay" :class="modelValue ? 'hx-dialog-mask__show' : 'hx-dialog-mask__hide'"></div>
-        <div class="hx-dialog-wrapper" :class="modelValue ? 'hx-dialog-wrapper__show' : 'hx-dialog-wrapper__hide' "> 
-                <div class="hx-dialog">
-                    <header>
-                        {{ title }}
-                        <span class="hx-dialog-close" @click="close"></span>
-                    </header>
-                    <main>
-                        <slot />
-                    </main>
-                    <footer>
-                        <slot name="footer">
-                            <Button level="primary" @click="onSubmit">{{ submitText }}</Button>
-                            <Button plain @click="onCancel">{{ cancelText }}</Button>
-                        </slot>
-                    </footer>
+    <Teleport to="#app">
+        <div class=" hx-dialog-overlay" :class="overlayClass">
+            <div class="hx-dialog-mask" @click.stop="onClickOverlay" :class="modelValue ? 'hx-dialog-mask__show' : 'hx-dialog-mask__hide'"></div>
+            <div class="hx-dialog-wrapper" :class="modelValue ? 'hx-dialog-wrapper__show' : 'hx-dialog-wrapper__hide' "> 
+                    <div class="hx-dialog">
+                        <header>
+                            <slot name="header"> {{ title }}</slot>
+                            <span class="hx-dialog-close" @click="close"></span>
+                        </header>
+                        <main>
+                            <slot />
+                        </main>
+                        <footer>
+                            <slot name="footer">
+                                <Button level="primary" @click="onSubmit">{{ submitText }}</Button>
+                                <Button plain @click="onCancel">{{ cancelText }}</Button>
+                            </slot>
+                        </footer>
+                    </div>
                 </div>
-            </div>
-    </div>
+        </div>
+    </Teleport>
     
 </template>
 

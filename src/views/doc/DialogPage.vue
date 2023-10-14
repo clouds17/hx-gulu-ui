@@ -10,6 +10,9 @@
             @onSubmit="onSubmit"
             @onCancel="onCancel"
         >
+            <template #header>
+                <h1>我加的标题</h1>
+            </template>
             <p>内容一</p>
             <p>内容二</p>
             <!-- <template #footer>
