@@ -1,6 +1,6 @@
 <template>
     <div>
-        Tab
+        <slot />
     </div>
 </template>
 
@@ -8,6 +8,6 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 
 </style>
