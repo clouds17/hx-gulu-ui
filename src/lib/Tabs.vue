@@ -15,16 +15,14 @@
         </div>
         <div class="hx-tabs-content">
             <component class="hx-tabs-content-item" 
-                :class="{ 'hx-selected': c.props.title === modelValue }"
-                v-for="(c, index) in defaults" 
-                :is="c" :key="index"
+                :is="current" :key="modelValue"
             ></component>
         </div>
     </div>
 </template>
 
 <script setup >
-import { ref, useSlots, onMounted, onUpdated } from 'vue';
+import { ref, useSlots, onMounted, onUpdated, watchEffect, computed } from 'vue';
 import Tab from '@/lib/Tab.vue';
 
 const props = defineProps({
@@ -43,7 +41,14 @@ onMounted(toggleIndicator)
 
 onUpdated(toggleIndicator)
 
+// onMounted(() => {
+//     watchEffect(toggleIndicator, {
+//         flush: 'sync'
+//     })
+// })
+
 function toggleIndicator() {
+    console.log('111');
     const divs = itemRefs.value
     const result = divs.filter(div => div.classList.contains('hx-selected'))[0]
     const { left: left2, width } = result.getBoundingClientRect()
@@ -65,6 +70,10 @@ defaults.forEach(item => {
 const titles = defaults.map((tab, index) => {
     const title =  tab?.props?.title || `导航${index + 1}`
     return title
+})
+
+const current = computed(() => {
+    return defaults.find(tag => tag?.props?.title === props.modelValue)
 })
 
 const select = (title) => {
@@ -101,12 +110,6 @@ $border-color: #d9d9d9;
 
     &-content {
         padding: 8px 0;
-        &-item {
-            display: none;
-            &.hx-selected {
-                display: block;
-            }
-        }
     }
 
     &-indicator {
