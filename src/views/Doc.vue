@@ -57,6 +57,12 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.router-link-active  {
+    background: #9CC5FC;
+    color: #fff;
+}
+
 .docPage {
     height: 100vh;
     overflow: hidden;
@@ -70,18 +76,26 @@ export default {
         aside {
             background-color: #F9F9F9;
             width: 150px;
-            padding: 16px;
+            padding: 16px 0;
             transform: translateX(0);
             transition: all .3s;
             overflow-y: auto;
             overflow-x: hidden;
             border-right: 1px solid #d9d9d9;
+            z-index: 99999;
             > h2 {
                 margin-bottom: 4px;
+                padding: 0 16px;
+                font-size: 20px;
+                font-weight: bold;
+                &:nth-of-type(n + 2) {
+                    margin-top: 10px;
+                }
             }
             > ol {
-                > li {
-                    padding: 4px 0;
+                > li a {
+                    display: block;
+                    padding: 6px 16px;
                 }
             }
             @media screen and (max-width: 500px) {
