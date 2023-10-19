@@ -82,7 +82,7 @@ export default {
             overflow-y: auto;
             overflow-x: hidden;
             border-right: 1px solid #d9d9d9;
-            z-index: 99999;
+            z-index: 199;
             > h2 {
                 margin-bottom: 4px;
                 padding: 0 16px;
