@@ -1,4 +1,8 @@
 import { createWebHashHistory, createRouter } from 'vue-router'
+import Markdown from './components/Markdown.vue'
+import { h } from 'vue'
+
+const md = path => h(Markdown, { path: `../markdowm/${path}.md`, key: path })
 
 export const router = createRouter({
     history: createWebHashHistory(),
@@ -17,15 +21,15 @@ export const router = createRouter({
                 },
                 {
                     path: 'intro',
-                    component: () => import('@/views/doc/Intro.vue')
+                    component: md('intro')
                 },
                 {
                     path: 'install',
-                    component: () => import('@/views/doc/Install.vue')
+                    component: md('install')
                 },
                 {
                     path: 'getstart',
-                    component: () => import('@/views/doc/GetStart.vue')
+                    component: md('getStart')
                 },
                 {
                     path: 'switch',

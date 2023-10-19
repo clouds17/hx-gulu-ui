@@ -6,10 +6,14 @@ import ElementPlus from 'element-plus'
 import App from './App.vue'
 import { router } from './router'
 import 'github-markdown-css'
+import Markdown from './components/Markdown.vue'
 
 
 const app = createApp(App)
 app.config.globalProperties.$baseImg = 'http://testpc.no19.35nic.com/urlproject/hx-gulu-ui/images/'
 app.use(ElementPlus)
 app.use(router)
+
+app.component("Markdown", Markdown)
+
 app.mount('#app')
