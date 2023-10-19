@@ -1,6 +1,6 @@
 <template>
     <div class="docPage">
-        <Topnav></Topnav>
+        <Topnav toggleMenuButtonVisible></Topnav>
         <div class="content">
             <aside :class="asideVisible ? '' : 'hide'" >
                 <h2>组件列表</h2>
@@ -56,13 +56,14 @@ export default {
         position: relative;
         overflow: hidden;
         aside {
-            background-color: lightblue;
+            background-color: #F9F9F9;
             width: 150px;
             padding: 16px;
             transform: translateX(0);
             transition: all .3s;
             overflow-y: auto;
             overflow-x: hidden;
+            border-right: 1px solid #d9d9d9;
             > h2 {
                 margin-bottom: 4px;
             }
