@@ -3,17 +3,19 @@
         <div class="hx-tabs-nav">
             <div 
                 class="hx-tabs-nav-item" 
-                :class="{ selected : title === modelValue }"
+                :class="{ 'hx-selected' : title === modelValue }"
                 v-for="(title, index) in titles" 
                 :key="index"
+                ref="itemRefs"
                 @click="select(title)"
             >
                 {{ title }}
             </div>
+            <div class="hx-tabs-indicator" ref="indicator"></div>
         </div>
         <div class="hx-tabs-content">
             <component class="hx-tabs-content-item" 
-                :class="{selected: c.props.title === modelValue}"
+                :class="{ 'hx-selected': c.props.title === modelValue }"
                 v-for="(c, index) in defaults" 
                 :is="c" :key="index"
             ></component>
@@ -22,7 +24,7 @@
 </template>
 
 <script setup >
-import { ref, useSlots } from 'vue';
+import { ref, useSlots, onMounted } from 'vue';
 import Tab from '@/lib/Tab.vue';
 
 const props = defineProps({
@@ -31,7 +33,19 @@ const props = defineProps({
     }
 })
 
+const itemRefs = ref([])
+const indicator = ref(null)
+
 const emit = defineEmits(['update:modelValue'])
+
+onMounted(() => {
+    console.log(itemRefs.value);
+    const divs = itemRefs.value
+    const result = divs.filter(div => div.classList.contains('hx-selected'))[0]
+    console.log(result.getBoundingClientRect());
+    const { left, width } = result.getBoundingClientRect()
+    indicator.value.style.width = width + 'px'
+})
 
 const slots = useSlots()
 
@@ -63,6 +77,7 @@ $border-color: #d9d9d9;
         display: flex;
         color: $color;
         border-bottom: 1px solid $border-color;
+        position: relative;
 
         &-item {
             padding: 8px 0;
@@ -73,7 +88,7 @@ $border-color: #d9d9d9;
                 margin-left: 0;
             }
 
-            &.selected {
+            &.hx-selected {
                 color: $blue;
             }
         }
@@ -83,10 +98,19 @@ $border-color: #d9d9d9;
         padding: 8px 0;
         &-item {
             display: none;
-            &.selected {
+            &.hx-selected {
                 display: block;
             }
         }
+    }
+
+    &-indicator {
+        position: absolute;
+        height: 3px;
+        background: $blue;
+        left: 0;
+        bottom: -1px;
+        width: 100px;
     }
 }
 </style>

@@ -12,7 +12,7 @@ import Tabs from '@/lib/Tabs.vue';
 import Tab from '@/lib/Tab.vue';
 import { ref } from 'vue';
 
-const activeTab = ref('tab1')
+const activeTab = ref('tab2')
 
 </script>
 
