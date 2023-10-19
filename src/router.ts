@@ -16,6 +16,18 @@ export const router = createRouter({
                     component: () => import('@/views/doc/DocPage.vue')
                 },
                 {
+                    path: 'intro',
+                    component: () => import('@/views/doc/Intro.vue')
+                },
+                {
+                    path: 'install',
+                    component: () => import('@/views/doc/Install.vue')
+                },
+                {
+                    path: 'getstart',
+                    component: () => import('@/views/doc/GetStart.vue')
+                },
+                {
                     path: 'switch',
                     component: () => import('@/views/doc/SwitchPage.vue')
                 },

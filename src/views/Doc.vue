@@ -3,6 +3,18 @@
         <Topnav toggleMenuButtonVisible></Topnav>
         <div class="content">
             <aside :class="asideVisible ? '' : 'hide'" >
+                <h2>文档</h2>
+                <ol>
+                    <li>
+                        <router-link to="/doc/intro">介绍</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/install">安装</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/getstart">开始使用</router-link>
+                    </li>
+                </ol>
                 <h2>组件列表</h2>
                 <ol>
                     <li>
