@@ -1,58 +1,74 @@
 <template>
-    <div>
-        <Button loading level="default" >default</Button>
-        <Button  level="primary">primary</Button>
-        <Button  level="success" >success</Button>
-        <Button  level="info" >info</Button>
-        <Button  level="warning" >warning</Button>
-        <Button level="danger"  >danger</Button>
-
-        <p style="padding-top: 30px;"></p>
-       
-        <Button plain  level="default" >default</Button>
-        <Button plain  level="primary">primary</Button>
-        <Button plain  level="success" >success</Button>
-        <Button plain  level="info" >info</Button>
-        <Button plain  level="warning" >warning</Button>
-        <Button plain  level="danger" >danger</Button>
-
-        <p style="padding-top: 30px;"></p>
-       
-        <Button plain round  size="small" level="default" >default</Button>
-        <Button plain round  level="primary">primary</Button>
-        <Button plain round  size="large" level="success" >success</Button>
-        <Button plain round  level="info" >info</Button>
-        <Button plain round  level="warning" >warning</Button>
-        <Button plain round  level="danger" >danger</Button>
-
-        <p style="padding-top: 30px;"></p>
-
-        <Button theme="link"  level="default" >default</Button>
-        <Button theme="link"  level="primary">primary</Button>
-        <Button theme="link"  level="success" >success</Button>
-        <Button theme="link"  level="info" >info</Button>
-        <Button theme="link"  level="warning" >warning</Button>
-        <Button theme="link"  level="danger" >danger</Button>
-
-        <p style="padding-top: 30px;"></p>
-
-        <Button theme="text"  level="default" >default</Button>
-        <Button theme="text"  level="primary">primary</Button>
-        <Button theme="text"  level="success" >success</Button>
-        <Button theme="text"  level="info" >info</Button>
-        <Button theme="text"   level="warning" >warning</Button>
-        <Button theme="text" :="true" level="danger" >danger</Button>
+    <div class="doc-page">
+        <h2>Button 组件示例 </h2>
+        <p class="doc-page-desc">常用的操作按钮。</p>
+        <div class="demo">
+            <h3>常规用法</h3>
+            <p class="doc-page-usage">尺寸 `size`: `large | normal | small`。 颜色等级 `level` : 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'。 
+                是否空心 `plain`。 是否圆角 `round` 。</p>
+            <div class="demo-component">
+                <ButtonDemo01></ButtonDemo01>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>按钮类型</h3>
+            <p class="doc-page-usage">类型 `theme`: button | link | text。 </p>
+            <div class="demo-component">
+                <ButtonDemo02></ButtonDemo02>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>禁用按钮</h3>
+            <p class="doc-page-usage">disable </p>
+            <div class="demo-component">
+                <ButtonDemo03></ButtonDemo03>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>按钮加载中</h3>
+            <p class="doc-page-usage">loading </p>
+            <div class="demo-component">
+                <ButtonDemo04></ButtonDemo04>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
     </div>
+    
 </template>
 
 <script lang="ts" setup>
 import Button from '@/lib/Button.vue';
+import ButtonDemo01 from '@/components/button/ButtonDemo01.vue';
+import ButtonDemo02 from '@/components/button/ButtonDemo02.vue';
+import ButtonDemo03 from '@/components/button/ButtonDemo03.vue';
+import ButtonDemo04 from '@/components/button/ButtonDemo04.vue';
 
-const onClick = () => {
-    console.log('触发了')
-}
 </script>
 
 <style lang="scss" scoped>
+@import './style.scss';
 
 </style>

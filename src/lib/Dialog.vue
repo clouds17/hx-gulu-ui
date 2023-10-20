@@ -96,7 +96,7 @@ const onClickOverlay = () => {
 
 const onSubmit = () => {
     // 如果有传入subnit函数就执行, 返回值不是 false，则直接关闭
-    if (props.submit?.() !== false) {
+    if (props.submit && props.submit() !== false) {
         close()
     }
     emit('onSubmit')
@@ -105,7 +105,6 @@ const onSubmit = () => {
 const onCancel = () => {
     // 如果有传入cancel函数就执行, 返回值不是 false，则直接关闭
     if (props.cancel && props.cancel() !== false) {
-        console.log('执行了这里了', props?.cancel)
         close()
     }
     emit('onCancel')

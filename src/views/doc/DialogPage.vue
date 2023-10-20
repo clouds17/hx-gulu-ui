@@ -1,90 +1,101 @@
 <template>
-    <div>
-        <Button @click="open">按钮</Button>
-        <DialogVue 
-            v-model="visible" 
-            title="小黄的title"
-            :close-on-click-overlay="false"
-            width="600px"
-            submit-text="肯定"
-            cancel-text="否定"
-            @onSubmit="onSubmit"
-            @onCancel="onCancel"
-        >
-            <template #title>
-                <h1>我加的标题</h1>
-            </template>
-            <p>内容一</p>
-            <p>内容二</p>
-            <!-- <template #footer>
-                <Button level="primary" @click="">我点确定</Button>
-                <Button plain @click="">我点取消</Button>
-            </template> -->
-        </DialogVue>
-
-        <!-- <el-dialog
-            title=""
-            v-model=""
-            width="30%"
-            :before-close="">
-            <span></span>
-            <template #footer>
-                <span>
-                    <el-button @click=" = false">Cancel</el-button>
-                    <el-button type="primary" @click="">OK</el-button>
-                </span>
-            </template>
-        </el-dialog> -->
-        
+    <div class="doc-page">
+        <h2>Dialog弹框 组件示例 </h2>
+        <p class="doc-page-desc">Dialog 弹出一个对话框，适合需要定制性更大的场景。</p>
+        <div class="demo">
+            <h3>常规用法</h3>
+            <p class="doc-page-usage">
+                需要设置 `model-value / v-model` 属性，它接收 `Boolean`，当为 `true` 时显示 Dialog。
+                `title` 属性设置弹框标题。
+                `width` 属性设置弹框大小。
+                `submit-text` 属性设置确认按钮的文字。
+                `cancel-text` 属性设置取消按钮的文字。
+                `@onSubmit`事件是点击确认事件。
+                `@onCancel` 事件是点击取消事件。
+            </p>
+            <div class="demo-component">
+                <DialogDemo01></DialogDemo01>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>自定义头部和底部</h3>
+            <p class="doc-page-usage">
+                设置了`title`具名插槽 和 `footer` 具名插槽，可以自定义头部和底部
+            </p>
+            <div class="demo-component">
+                <DialogDemo02></DialogDemo02>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>点击空白部分是否关闭弹框</h3>
+            <p class="doc-page-usage">
+                属性 `close-on-click-overlay` 默认 `true`
+            </p>
+            <div class="demo-component">
+                <DialogDemo03></DialogDemo03>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>关闭之前执行的函数</h3>
+            <p class="doc-page-usage">
+                属性 `beforeClose` 是一个函数, return false 时 不会关闭弹框
+            </p>
+            <div class="demo-component">
+                <DialogDemo04></DialogDemo04>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>一句代码打开 Dialog</h3>
+            <p class="doc-page-usage">
+                类似 ElMessageBox 消息弹框
+            </p>
+            <div class="demo-component">
+                <DialogDemo05></DialogDemo05>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
     </div>
+    
 </template>
 
 <script setup lang="ts">
-import DialogVue from '@/lib/Dialog.vue';
-import { ref } from 'vue';
-import Button from '@/lib/Button.vue';
-import { openDialog } from '@/lib/openDialog.ts';
-
-const visible = ref(false)
-
-const open = () => visible.value = true
-// const open = () => {
-//     openDialog({
-//         title: '我定义的标题',
-//         mainText: '我定义的内容',
-//         width: '40%',
-//         submitText: '同意',
-//         cancelText: '拒绝',
-//         closeOnClickOverlay: false,
-//         submit: () => {
-//             console.log('submit')
-//         },
-//         cancel: () => {
-//             console.log('cancel')
-//         }
-//     })
-// }
-
-
-
-const onBeforeClose = () => {
-   console.log('aaaaa')
-   return false
-}
-
-const onSubmit =  () => {
-     setTimeout(() => {
-        alert('哈哈哈哈哈')
-        visible.value = false
-    }, 1000);
-}
-
-const onCancel =  () => {
-    // visible.value = false
-}
-
+import DialogDemo01 from '@/components/dialog/DialogDemo01.vue'
+import DialogDemo02 from '@/components/dialog/DialogDemo02.vue'
+import DialogDemo03 from '@/components/dialog/DialogDemo03.vue'
+import DialogDemo04 from '@/components/dialog/DialogDemo04.vue'
+import DialogDemo05 from '@/components/dialog/DialogDemo05.vue'
 </script>
 
 <style lang="scss" scoped>
+@import './style.scss';
 
 </style>

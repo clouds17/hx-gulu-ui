@@ -1,56 +1,60 @@
 <template>
-    <div>
-        <Switch
-            v-model="value1"
-            class="mb-2"
-            active-text="Pay by month"
-            inactive-text="Pay by year"
-            @change="switchChange"
-        />
-        <br />
-        <Switch
-            v-model="value2"
-            class="mb-2"
-            size="large"
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
-            active-text="Pay by month"
-            inactive-text="Pay by year"
-        />
-        <br />
-        <br />
-        <Switch
-            v-model="value3"
-            inline-prompt
-            size="small"
-            active-text="是"
-            inactive-text="否"
-        />
-        <Switch
-            v-model="value4"
-            class="ml-2"
-            inline-prompt
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
-            active-text="Y"
-            inactive-text="N"
-        />
-        <Switch
-            v-model="value6"
-            class="ml-2"
-            width="70"
-            disabled
-            inline-prompt
-            active-text="超出省略"
-            inactive-text="超出省略"
-        />
-        <Switch
-            v-model="value5"
-            class="ml-2"
-            disabled
-            inline-prompt
-            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
-            active-text="完整展示多个内容"
-            inactive-text="多个内容"
-        />
+    <div class="doc-page">
+        <h2>Switch 组件示例 </h2>
+        <p class="doc-page-desc">表示两种相互对立的状态间的切换，多用于触发「开/关」。</p>
+        <div class="demo">
+            <h3>常规用法</h3>
+            <p class="doc-page-usage">绑定 `v-model` 到一个 `Boolean` 类型的变量。 可以使用 `--el-switch-on-color` 属性与 `--el-switch-off-color` 属性来设置开关的背景色</p>
+            <div class="demo-component">
+                <SwitchDemo01></SwitchDemo01>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>尺寸大小</h3>
+            <p class="doc-page-usage">绑定一个 `size` 属性，属性值可以是 'large' | 'default' | 'small'。</p>
+            <div class="demo-component">
+                <SwitchDemo02></SwitchDemo02>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+        <div class="demo">
+            <h3>文字描述</h3>
+            <p class="doc-page-usage">使用 `active-text` 属性与 `inactive-text` 属性来设置开关的文字描述。 使用 `inline-prompt` 属性来控制文本是否显示在点内。</p>
+            <div class="demo-component">
+                <SwitchDemo03></SwitchDemo03>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
+
+        <div class="demo">
+            <h3>禁用状态</h3>
+            <p class="doc-page-usage">设置 `disabled` 属性，接受一个 `Boolean`，设置 `true` 即可禁用。</p>
+            <div class="demo-component">
+                <SwitchDemo04></SwitchDemo04>
+            </div>
+            <div class="demo-actions">
+                <Button>查看代码</Button>
+            </div>
+            <div class="demo-code">
+                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+            </div>
+        </div>
 
     </div>
 </template>
@@ -58,19 +62,14 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import Switch from '@/lib/Switch.vue';
+import SwitchDemo01 from '@/components/switch/SwitchDemo01.vue'
+import SwitchDemo02 from '@/components/switch/SwitchDemo02.vue'
+import SwitchDemo03 from '@/components/switch/SwitchDemo03.vue'
+import SwitchDemo04 from '@/components/switch/SwitchDemo04.vue'
 
-const value1 = ref(true)
-const value2 = ref(true)
-const value3 = ref(true)
-const value4 = ref(true)
-const value5 = ref(true)
-const value6 = ref(false)
-
-const switchChange = (e) => {
-    console.log('改变了', e)
-}
 </script>
 
 <style lang="scss" scoped>
+@import './style.scss';
 
 </style>

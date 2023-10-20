@@ -42,7 +42,7 @@ const value2 = ref(true)
     size="large"
   />
   <br />
-  <Switch v-model="value" 
+  <Switch v-model="value" />
   <br />
   <Switch
     v-model="value"
@@ -429,5 +429,109 @@ const open = () => {
 
 </script>
 
+```
+
+
+
+## Tabs 标签页
+
+分隔内容上有关联但属于不同类别的数据集合。
+
+### 基础用法
+
+基础的、简洁的标签页。
+
+Tabs 组件提供了选项卡功能，可以通过 `value` 属性来指定当前选中的标签页。
+
+```vue
+<template>
+    <div>
+        <Tabs v-model="activeTab">
+            <Tab title="tab1">内容1</Tab>
+            <Tab title="tab22222">内容2</Tab>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+import Tabs from '@/lib/Tabs.vue';
+import Tab from '@/lib/Tab.vue';
+import { ref } from 'vue';
+const activeTab = ref('tab22222')
+
+</script>
+
+```
+
+
+
+### 卡片风格的标签
+
+你可以设置具有卡片风格的标签。
+
+只需要设置 `type` 属性为 `card` 就可以使选项卡改变为标签风格。
+
+```vue
+<template>
+    <div>
+        <Tabs v-model="activeTab" type="card">
+            <Tab title="tab1">内容1</Tab>
+            <Tab title="tab2222">内容2</Tab>
+            <Tab title="tab3">内容3</Tab>
+            <Tab title="tab4">内容4</Tab>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+import Tabs from '@/lib/Tabs.vue';
+import Tab from '@/lib/Tab.vue';
+import { ref } from 'vue';
+
+const activeTab = ref('tab1')
+
+</script>
+```
+
+
+
+### 标签位置的设置
+
+可以通过 `tab-position` 设置标签的位置
+
+标签一共有四个方向的设置 `tab-position = "left|right|top|bottom"`
+
+```vue
+<template>
+    <div>
+        <div style="padding-bottom: 30px">
+            <Button @click="changeDirection('top')">top</Button>
+            <Button @click="changeDirection('right')">right</Button>
+            <Button @click="changeDirection('bottom')">bottom</Button>
+            <Button @click="changeDirection('left')">left</Button>
+        </div>
+        <Tabs v-model="activeTab" :tab-position="tabPosition" >
+            <Tab title="tab1">内容1</Tab>
+            <Tab title="tab2222">内容2</Tab>
+            <Tab title="tab3">内容3</Tab>
+            <Tab title="tab4">内容4</Tab>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+import Tabs from '@/lib/Tabs.vue';
+import Tab from '@/lib/Tab.vue';
+import { ref } from 'vue';
+import Button from '@/lib/Button.vue';
+
+const activeTab = ref('tab1')
+const tabPosition = ref('top')
+
+const changeDirection = (direction) => {
+    tabPosition.value = direction
+}
+
+</script>
 ```
 
