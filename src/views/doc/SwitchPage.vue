@@ -60,12 +60,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import Switch from '@/lib/Switch.vue';
 import SwitchDemo01 from '@/components/switch/SwitchDemo01.vue'
-import SwitchDemo02 from '@/components/switch/SwitchDemo02.vue'
+import * as SwitchDemo02 from '@/components/switch/SwitchDemo02.vue'
 import SwitchDemo03 from '@/components/switch/SwitchDemo03.vue'
 import SwitchDemo04 from '@/components/switch/SwitchDemo04.vue'
+
 
 </script>
 

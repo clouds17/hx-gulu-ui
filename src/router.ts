@@ -3,6 +3,7 @@ import Markdown from './components/Markdown.vue'
 import { h } from 'vue'
 
 const md = path => h(Markdown, { path: `../markdowm/${path}.md`, key: path })
+import SwitchDemo from "@/views/doc/SwitchPage.vue";
 
 export const router = createRouter({
     history: createWebHashHistory(),
