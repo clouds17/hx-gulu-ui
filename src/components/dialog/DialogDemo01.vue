@@ -1,4 +1,4 @@
-<!-- 基本用法 -->
+<demo>基本用法</demo>
 <template>
     <div>
         <Button level="primary" @click="open">基本用法</Button>

@@ -1,4 +1,4 @@
-<!-- 自定义头部和底部 -->
+<demo>自定义头部和底部</demo>
 <template>
     <div>
         <Button level="primary" @click="open">自定义头部和底部</Button>

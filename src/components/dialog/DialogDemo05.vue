@@ -1,4 +1,4 @@
-<!-- 一句代码打开 Dialog -->
+<demo>一句代码打开 Dialog</demo>
 <template>
     <div>
         <Button level="primary" @click="open">一句代码打开 Dialog</Button>

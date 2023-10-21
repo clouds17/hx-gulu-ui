@@ -1,4 +1,4 @@
-<!-- 点击空白部分是否关闭弹框 -->
+<demo>点击空白部分是否关闭弹框</demo>
 <template>
     <div>
         <Button level="primary" @click="open">close-on-click-overlay</Button>

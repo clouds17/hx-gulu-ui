@@ -1,4 +1,4 @@
-<!-- 关闭之前的函数 -->
+<demo>关闭之前的函数</demo>
 <!-- 属性 `beforeClose` 是一个函数, return false 时 不会关闭弹框 -->
 <template>
     <div>
