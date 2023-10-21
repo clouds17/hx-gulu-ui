@@ -1,5 +1,4 @@
-<!-- 尺寸  'large' | 'default' | 'small' --> 
-
+<demo>尺寸大小</demo>
 <template>
     <Switch
         v-model="value"
@@ -10,11 +9,11 @@
         v-model="value"
         size="small"
     />
-  </template>
+</template>
   
-  <script lang="ts" setup>
+<script lang="ts" setup>
   import Switch from '@/lib/Switch.vue';
   import { ref } from 'vue'
   
   const value = ref(true)
-  </script>
+</script>

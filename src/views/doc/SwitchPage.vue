@@ -12,7 +12,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+                <pre>{{ SwitchDemo01.__sourceCode }}</pre>
             </div>
         </div>
         <div class="demo">
@@ -25,7 +25,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+                <pre>{{ SwitchDemo02.__sourceCode }}</pre>
             </div>
         </div>
         <div class="demo">
@@ -38,7 +38,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+                <pre>{{ SwitchDemo03.__sourceCode }}</pre>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+                <pre>{{ SwitchDemo04.__sourceCode }}</pre>
             </div>
         </div>
 
@@ -60,11 +60,13 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 import SwitchDemo01 from '@/components/switch/SwitchDemo01.vue'
-import * as SwitchDemo02 from '@/components/switch/SwitchDemo02.vue'
+import SwitchDemo02 from '@/components/switch/SwitchDemo02.vue'
 import SwitchDemo03 from '@/components/switch/SwitchDemo03.vue'
 import SwitchDemo04 from '@/components/switch/SwitchDemo04.vue'
 
+console.log('SwitchDemo01', SwitchDemo01.__sourceCode)
 
 </script>
 

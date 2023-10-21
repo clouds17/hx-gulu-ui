@@ -1,4 +1,4 @@
-<!-- 文字描述  'large' | 'default' | 'small' --> 
+<demo>文字描述</demo>
 <template>
    <Switch
     v-model="value1"
@@ -45,9 +45,9 @@
   />
 </template>
   
-  <script lang="ts" setup>
-  import Switch from '@/lib/Switch.vue';
-  import { ref } from 'vue'
+<script lang="ts" setup>
+    import Switch from '@/lib/Switch.vue';
+    import { ref } from 'vue'
   
     const value1 = ref(true)
     const value2 = ref(true)
@@ -55,4 +55,4 @@
     const value4 = ref(true)
     const value5 = ref(true)
     const value6 = ref(true)
-  </script>
+</script>
