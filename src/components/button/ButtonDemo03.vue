@@ -1,4 +1,4 @@
-<!-- 禁用按钮 -->
+<demo>禁用按钮</demo>
 <template>
     <!-- disabled -->
     <div>

@@ -1,4 +1,4 @@
-<!-- 基本用法 -->
+<demo>基本用法</demo>
 <template>
     <!-- 尺寸 size: large | normal | small -->
     <div>

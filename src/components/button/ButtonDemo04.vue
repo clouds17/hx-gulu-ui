@@ -1,4 +1,4 @@
-<!-- 加载中 -->
+<demo>按钮加载中</demo>
 <template>
     <!-- loading -->
     <div>

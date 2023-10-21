@@ -1,4 +1,4 @@
-<!-- 按钮类型 -->
+<demo>按钮类型</demo>
 <template>
     <!-- 类型 theme: button | link | text -->
     <div>
