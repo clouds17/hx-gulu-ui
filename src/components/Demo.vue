@@ -6,16 +6,17 @@
             <component :is="component" />
         </div>
         <div class="demo-actions">
-            <Button>查看代码</Button>
+            <Button @click="toggleCode">查看代码</Button>
         </div>
-        <div class="demo-code">
-            <pre class="language-html" v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html') "></pre>
+        <div class="demo-code" v-if="codeVisible">
+            <pre class="language-html" v-html="html"></pre>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { computed, ref } from 'vue';
+const props = defineProps({
     component: {
         type: Object
     },
@@ -26,6 +27,18 @@ defineProps({
 import 'prismjs'
 import 'prismjs/themes/prism-okaidia.min.css'
 const Prism = (window as any).Prism
+
+
+const html = computed(() => {
+    return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html') 
+})
+
+const codeVisible = ref(false)
+
+const toggleCode = () => {
+    codeVisible.value = !codeVisible.value
+}
+
 </script>
 
 <style lang="scss" scoped>
