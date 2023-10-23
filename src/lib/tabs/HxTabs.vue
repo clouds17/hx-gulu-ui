@@ -46,7 +46,7 @@
 
 <script setup >
 import { ref, useSlots, onMounted, onUpdated, watchEffect, computed } from 'vue';
-import HxTab from '@/lib/tabs/HxTab.vue';
+import HxTab from './HxTab.vue';
 
 const props = defineProps({
     modelValue: {

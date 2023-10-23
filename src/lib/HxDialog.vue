@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import HxButton from '@/lib/HxButton.vue';
+import HxButton from './HxButton.vue';
 import { ref, computed, watch } from 'vue';
 const props = defineProps({
     modelValue: {
