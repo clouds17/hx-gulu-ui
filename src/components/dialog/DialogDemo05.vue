@@ -1,13 +1,13 @@
 <demo>一句代码打开 Dialog</demo>
 <template>
     <div>
-        <Button level="primary" @click="open">一句代码打开 Dialog</Button>
+        <hx-button level="primary" @click="open">一句代码打开 Dialog</hx-button>
     </div>
 </template>
   
 <script lang="ts" setup>
   import { openDialog } from '@/lib/openDialog.ts';
-  import Button from '@/lib/Button.vue';
+  import HxButton from '@/lib/HxButton.vue';
   import { ref } from 'vue'
   
     const open = () => {

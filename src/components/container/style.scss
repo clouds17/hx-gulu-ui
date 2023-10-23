@@ -1,0 +1,29 @@
+.common-layout {
+    --hx-color-primary-light-7: #c6e2ff;
+    --hx-color-primary-light-8: #d9ecff;
+    --hx-color-primary-light-9: #ecf5ff;
+    --hx-text-color: #303133;
+    .hx-footer,
+    .hx-header {
+        background-color: var(--hx-color-primary-light-7);
+    }
+
+    .hx-main {
+        background-color: var(--hx-color-primary-light-9);
+        height: 150px;
+    }
+    .hx-aside {
+        background-color: var(--hx-color-primary-light-8);
+    }
+
+    .hx-footer,
+    .hx-header,
+    .hx-main,
+    .hx-aside {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--hx-text-color);
+    }
+}

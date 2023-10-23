@@ -95,6 +95,7 @@ $level-plain: #ECF5FF,#F0F9EB,#F4F4F5,#FDF6EC,#FEF0F0;
     border: 1px solid $border-color;
     border-radius: $radius;
     box-shadow: 0 1px 0 fade-out(black, 0.95);
+    margin-bottom: 10px;
     & + & {
         margin-left: 8px;
     }

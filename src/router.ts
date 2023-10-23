@@ -18,7 +18,7 @@ export const router = createRouter({
             children: [
                 {
                     path: '',
-                    component: () => import('@/views/doc/DocPage.vue')
+                    redirect: '/doc/intro'
                 },
                 {
                     path: 'intro',
@@ -47,6 +47,18 @@ export const router = createRouter({
                 {
                     path: 'tabs',
                     component: () => import('@/views/doc/TabsPage.vue')
+                },
+                {
+                    path: 'container',
+                    component: () => import('@/views/doc/ContainerPage.vue')
+                },
+                {
+                    path: 'cascader',
+                    component: () => import('@/views/doc/CascaderPage.vue')
+                },
+                {
+                    path: 'messagebox',
+                    component: () => import('@/views/doc/MassageBoxPage.vue')
                 }
             ]
         },

@@ -1,8 +1,8 @@
 <demo>自定义头部和底部</demo>
 <template>
     <div>
-        <Button level="primary" @click="open">自定义头部和底部</Button>
-        <Dialog
+        <hx-button level="primary" @click="open">自定义头部和底部</hx-button>
+        <hx-dialog
             v-model="visible" 
         >
             <template #title>
@@ -11,17 +11,17 @@
             <p>内容一</p>
             <p>内容二</p>
             <template #footer>
-                <Button level="primary" @click="">我点确定</Button>
-                <Button plain @click="">我点取消</Button>
+                <hx-button level="primary" @click="">我点确定</hx-button>
+                <hx-button plain @click="">我点取消</hx-button>
             </template>
-        </Dialog>
+        </hx-dialog>
     </div>
     
 </template>
   
 <script lang="ts" setup>
-  import Dialog from '@/lib/Dialog.vue';
-  import Button from '@/lib/Button.vue';
+  import HxDialog from '@/lib/HxDialog.vue';
+  import HxButton from '@/lib/HxButton.vue';
   import { ref } from 'vue'
   
   const visible = ref(false)

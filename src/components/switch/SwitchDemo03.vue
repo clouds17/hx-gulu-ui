@@ -1,11 +1,11 @@
 <demo>文字描述</demo>
 <template>
-   <Switch
+   <hx-switch
     v-model="value1"
     active-text="Pay by month"
     inactive-text="Pay by year"
   />
-  <Switch
+  <hx-switch
     v-model="value2"
     style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
     active-text="Pay by month"
@@ -13,13 +13,13 @@
   />
   <br />
   <br />
-  <Switch
+  <hx-switch
     v-model="value3"
     inline-prompt
     active-text="是"
     inactive-text="否"
   />
-  <Switch
+  <hx-switch
     v-model="value4"
     class="ml-2"
     inline-prompt
@@ -27,7 +27,7 @@
     active-text="Y"
     inactive-text="N"
   />
-  <Switch
+  <hx-switch
     v-model="value5"
     class="ml-2"
     width="60"
@@ -35,7 +35,7 @@
     active-text="超出省略"
     inactive-text="超出省略"
   />
-  <Switch
+  <hx-switch
     v-model="value6"
     class="ml-2"
     inline-prompt
@@ -46,7 +46,7 @@
 </template>
   
 <script lang="ts" setup>
-    import Switch from '@/lib/Switch.vue';
+    import HxSwitch from '@/lib/HxSwitch.vue';
     import { ref } from 'vue'
   
     const value1 = ref(true)

@@ -2,22 +2,22 @@
 <!-- 属性 `beforeClose` 是一个函数, return false 时 不会关闭弹框 -->
 <template>
     <div>
-        <Button level="primary" @click="open">beforeClose 函数</Button>
-        <Dialog
+        <hx-button level="primary" @click="open">beforeClose 函数</hx-button>
+        <hx-dialog
             v-model="visible" 
             :close-on-click-overlay = "false"
             :beforeClose = "onBeforeClose"
         >
             <p>内容一</p>
             <p>内容二</p>
-        </Dialog>
+        </hx-dialog>
     </div>
     
 </template>
   
 <script lang="ts" setup>
-  import Dialog from '@/lib/Dialog.vue';
-  import Button from '@/lib/Button.vue';
+  import HxDialog from '@/lib/HxDialog.vue';
+  import HxButton from '@/lib/HxButton.vue';
   import { ref } from 'vue'
   
   const visible = ref(false)

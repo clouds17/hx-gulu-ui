@@ -46,7 +46,7 @@
 
 <script setup >
 import { ref, useSlots, onMounted, onUpdated, watchEffect, computed } from 'vue';
-import Tab from '@/lib/Tab.vue';
+import HxTab from '@/lib/tabs/HxTab.vue';
 
 const props = defineProps({
     modelValue: {
@@ -102,12 +102,9 @@ function toggleIndicator() {
 const slots = useSlots()
 
 const defaults = slots.default()
-
-console.log('defaults', defaults)
-
 defaults.forEach(item => {
-    if (item.type !== Tab) {
-        throw new Error('组件Tabs 里面的子标签只能是组件 Tab')
+    if (item.type !== HxTab) {
+        throw new Error('组件hx-tabs 里面的子标签只能是组件 hx-tab')
     }
 })
 

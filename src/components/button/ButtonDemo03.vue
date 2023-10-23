@@ -2,31 +2,31 @@
 <template>
     <!-- disabled -->
     <div>
-        <Button disabled level="default" >default</Button>
-        <Button disabled level="primary">primary</Button>
-        <Button disabled level="success" >success</Button>
-        <Button disabled level="info" >info</Button>
-        <Button disabled level="warning" >warning</Button>
-        <Button disabled level="danger"  >danger</Button>
+        <hx-button disabled level="default" >default</hx-button>
+        <hx-button disabled level="primary">primary</hx-button>
+        <hx-button disabled level="success" >success</hx-button>
+        <hx-button disabled level="info" >info</hx-button>
+        <hx-button disabled level="warning" >warning</hx-button>
+        <hx-button disabled level="danger"  >danger</hx-button>
     </div>
     <div style="padding-top: 20px;">
-        <Button disabled theme="link" level="default" >link default</Button>
-        <Button disabled theme="link" level="primary">link primary</Button>
-        <Button disabled theme="link " level="success" >link success</Button>
-        <Button disabled theme="link " level="info" >link info</Button>
-        <Button disabled theme="link" level="warning" >link warning</Button>
-        <Button disabled theme="link" level="danger" >link danger</Button>
+        <hx-button disabled theme="link" level="default" >link default</hx-button>
+        <hx-button disabled theme="link" level="primary">link primary</hx-button>
+        <hx-button disabled theme="link " level="success" >link success</hx-button>
+        <hx-button disabled theme="link " level="info" >link info</hx-button>
+        <hx-button disabled theme="link" level="warning" >link warning</hx-button>
+        <hx-button disabled theme="link" level="danger" >link danger</hx-button>
     </div>
     <div style="padding-top: 20px;">
-        <Button disabled theme="text" level="default" >text default</Button>
-        <Button disabled theme="text" level="primary">text primary</Button>
-        <Button disabled theme="text " level="success" >text success</Button>
-        <Button disabled theme="text " level="info" >text info</Button>
-        <Button disabled theme="text" level="warning" >text warning</Button>
-        <Button disabled theme="text" level="danger" >text danger</Button>
+        <hx-button disabled theme="text" level="default" >text default</hx-button>
+        <hx-button disabled theme="text" level="primary">text primary</hx-button>
+        <hx-button disabled theme="text " level="success" >text success</hx-button>
+        <hx-button disabled theme="text " level="info" >text info</hx-button>
+        <hx-button disabled theme="text" level="warning" >text warning</hx-button>
+        <hx-button disabled theme="text" level="danger" >text danger</hx-button>
     </div>
 </template>
   
 <script lang="ts" setup>
-    import Button from '@/lib/Button.vue';
+    import HxButton from '@/lib/HxButton.vue';
 </script>

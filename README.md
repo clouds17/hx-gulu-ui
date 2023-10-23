@@ -535,3 +535,119 @@ const changeDirection = (direction) => {
 </script>
 ```
 
+
+
+
+
+## MessageBox 消息提示框
+
+默认会返回一个`Promise`对象便于进行后续操作的处理。
+
+### 基础用法
+
+```vue
+<template>
+    <div>
+        <hx-button @click="open">点击</hx-button>
+    </div>
+</template>
+
+<script setup lang="ts">
+import HxButton from '@/lib/HxButton.vue';
+import hxMessageBox from '@/lib/hxMessageBox/index'
+const open = () => {
+    hxMessageBox.confirm({
+        content: '消息内容',
+        successText: '确定',
+        cancelText: '取消',
+        headerText: '头部标题',
+    })
+    .then(() => {
+      console.log('success')
+    })
+    .catch(() => {
+      console.log('cancel')
+    })
+}
+</script>
+```
+
+
+
+### 弹窗类型
+
+```vue
+<template>
+    <div>
+        <p>弹窗类型: default 默认显示确认，取消  /  confirm 仅显示确认</p>
+        <hx-button @click="open">default</hx-button>
+        <hx-button @click="open2">confirm</hx-button>
+    </div>
+</template>
+
+<script setup lang="ts">
+import HxButton from '@/lib/HxButton.vue';
+import hxMessageBox from '@/lib/hxMessageBox/index'
+const open = () => {
+    hxMessageBox.confirm({
+        content: 'default弹框',
+        successText: '确定',
+        cancelText: '取消',
+        headerText: '头部标题',
+        type: 'default'
+    })
+    .then(() => {
+      console.log('success')
+    })
+    .catch(() => {
+      console.log('cancel')
+    })
+}
+const open2 = () => {
+    hxMessageBox.confirm({
+        content: 'confirm 弹框',
+        successText: '确定',
+        headerText: '头部标题',
+        type: 'confirm'
+    })
+    .then(() => {
+      console.log('success')
+    })
+}
+</script>
+
+```
+
+
+
+### 点击遮罩层关闭
+
+```vue
+<template>
+    <div>
+        <hx-button @click="open">点击</hx-button>
+    </div>
+</template>
+
+<script setup lang="ts">
+import HxButton from '@/lib/HxButton.vue';
+import hxMessageBox from '@/lib/hxMessageBox/index'
+const open = () => {
+    hxMessageBox.confirm({
+        content: '点击遮罩层可以关闭',
+        successText: '确定',
+        cancelText: '取消',
+        headerText: '头部标题',
+        closeByOverlay: true
+    })
+    .then(() => {
+      console.log('success')
+    })
+    .catch(() => {
+      console.log('cancel')
+    })
+}
+</script>
+
+```
+

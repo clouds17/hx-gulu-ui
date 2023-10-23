@@ -1,26 +1,26 @@
-<!-- 标签位置的设置 -->
+<demo>标签位置的设置</demo>
 <template>
     <div>
         <div style="padding-bottom: 30px">
-            <Button @click="changeDirection('top')">top</Button>
-            <Button @click="changeDirection('right')">right</Button>
-            <Button @click="changeDirection('bottom')">bottom</Button>
-            <Button @click="changeDirection('left')">left</Button>
+            <hx-button @click="changeDirection('top')">top</hx-button>
+            <hx-button @click="changeDirection('right')">right</hx-button>
+            <hx-button @click="changeDirection('bottom')">bottom</hx-button>
+            <hx-button @click="changeDirection('left')">left</hx-button>
         </div>
-        <Tabs v-model="activeTab" :tab-position="tabPosition" >
-            <Tab title="tab1">内容1</Tab>
-            <Tab title="tab2222">内容2</Tab>
-            <Tab title="tab3">内容3</Tab>
-            <Tab title="tab4">内容4</Tab>
-        </Tabs>
+        <hx-tabs v-model="activeTab" :tab-position="tabPosition" >
+            <hx-tab title="tab1">内容1</hx-tab>
+            <hx-tab title="tab2222">内容2</hx-tab>
+            <hx-tab title="tab3">内容3</hx-tab>
+            <hx-tab title="tab4">内容4</hx-tab>
+        </hx-tabs>
     </div>
 </template>
 
 <script setup>
-import Tabs from '@/lib/Tabs.vue';
-import Tab from '@/lib/Tab.vue';
+import HxTabs from '@/lib/tabs/HxTabs.vue';
+import HxTab from '@/lib/tabs/HxTab.vue';
 import { ref } from 'vue';
-import Button from '@/lib/Button.vue';
+import HxButton from '@/lib/HxButton.vue';
 
 const activeTab = ref('tab1')
 const tabPosition = ref('top')

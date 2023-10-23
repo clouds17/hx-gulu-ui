@@ -1,11 +1,11 @@
 <demo>禁用状态</demo>
 <template>
-    <Switch v-model="value1" disabled />
-    <Switch v-model="value2" @change="switchChange"/>
+    <hx-switch v-model="value1" disabled />
+    <hx-switch v-model="value2" @change="switchChange"/>
 </template>
 
 <script lang="ts" setup>
-    import Switch from '@/lib/Switch.vue';
+    import HxSwitch from '@/lib/HxSwitch.vue';
     import { ref } from 'vue'
 
     const value1 = ref(true)

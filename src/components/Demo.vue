@@ -6,7 +6,7 @@
             <component :is="component" />
         </div>
         <div class="demo-actions">
-            <Button @click="toggleCode">查看代码</Button>
+            <hx-button @click="toggleCode">查看代码</hx-button>
         </div>
         <div class="demo-code" v-if="codeVisible">
             <pre class="language-html" v-html="html"></pre>
@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import HxButton from '@/lib/HxButton.vue';
 const props = defineProps({
     component: {
         type: Object

@@ -1,21 +1,21 @@
 <demo>点击空白部分是否关闭弹框</demo>
 <template>
     <div>
-        <Button level="primary" @click="open">close-on-click-overlay</Button>
-        <Dialog
+        <hx-button level="primary" @click="open">close-on-click-overlay</hx-button>
+        <hx-dialog
             v-model="visible" 
             :close-on-click-overlay = "false"
         >
             <p>内容一</p>
             <p>内容二</p>
-        </Dialog>
+        </hx-dialog>
     </div>
     
 </template>
   
 <script lang="ts" setup>
-  import Dialog from '@/lib/Dialog.vue';
-  import Button from '@/lib/Button.vue';
+  import HxDialog from '@/lib/HxDialog.vue';
+  import HxButton from '@/lib/HxButton.vue';
   import { ref } from 'vue'
   
   const visible = ref(false)

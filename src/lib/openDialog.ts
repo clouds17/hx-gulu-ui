@@ -1,5 +1,5 @@
 import { createApp, h } from "vue"
-import Dialog from '@/lib/Dialog.vue';
+import HxDialog from '@/lib/HxDialog.vue';
 
 export const openDialog = (options) => {
     const { 
@@ -17,7 +17,7 @@ export const openDialog = (options) => {
     document.body.appendChild(div)
     const app = createApp({
         render() {
-            return h(Dialog, {
+            return h(HxDialog, {
                 modelValue: true,
                 title,
                 mainText,

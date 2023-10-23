@@ -17,8 +17,8 @@
                         </main>
                         <footer>
                             <slot name="footer">
-                                <Button level="primary" @click="onSubmit">{{ submitText }}</Button>
-                                <Button plain @click="onCancel">{{ cancelText }}</Button>
+                                <hx-button level="primary" @click="onSubmit">{{ submitText }}</hx-button>
+                                <hx-button plain @click="onCancel">{{ cancelText }}</hx-button>
                             </slot>
                         </footer>
                     </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import Button from '@/lib/Button.vue';
+import HxButton from '@/lib/HxButton.vue';
 import { ref, computed, watch } from 'vue';
 const props = defineProps({
     modelValue: {

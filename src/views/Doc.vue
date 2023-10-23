@@ -18,16 +18,25 @@
                 <h2>组件列表</h2>
                 <ol>
                     <li>
+                        <router-link to="/doc/container">Container 布局容器</router-link>
+                    </li>
+                    <li>
                         <router-link to="/doc/switch">Switch 组件</router-link>
                     </li>
                     <li>
                         <router-link to="/doc/button">Button 组件</router-link>
                     </li>
                     <li>
-                        <router-link to="/doc/dialog">Dialog 组件</router-link>
+                        <router-link to="/doc/dialog">Dialog 对话框</router-link>
                     </li>
                     <li>
-                        <router-link to="/doc/tabs">Tabs 组件</router-link>
+                        <router-link to="/doc/tabs">Tabs 标签页</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/cascader">Cascader 级联选择器</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/doc/messagebox">messageBox 组件</router-link>
                     </li>
                 </ol>
             </aside>
@@ -75,7 +84,7 @@ export default {
         overflow: hidden;
         aside {
             background-color: #F9F9F9;
-            width: 150px;
+            width: 300px;
             padding: 16px 0;
             transform: translateX(0);
             transition: all .3s;
@@ -98,11 +107,20 @@ export default {
                     padding: 6px 16px;
                 }
             }
+            @media screen and (max-width: 800px) {
+                width: 220px;
+                font-size: 15px;
+                h2 {
+                    font-size: 18px;
+                }
+            }
             @media screen and (max-width: 500px) {
                 position: absolute;
                 top: 0;
                 bottom: 0;
                 left: 0;
+                width: 150px;
+                font-size: 13px;
             }
             &.hide {
                 transform: translateX(-150px);

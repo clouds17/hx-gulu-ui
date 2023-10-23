@@ -2,15 +2,15 @@
 <template>
     <!-- loading -->
     <div>
-        <Button loading level="default" >default</Button>
-        <Button loading level="primary">primary</Button>
-        <Button loading level="success" >success</Button>
-        <Button loading level="info" >info</Button>
-        <Button loading level="warning" >warning</Button>
-        <Button loading level="danger"  >danger</Button>
+        <hx-button loading level="default" >default</hx-button>
+        <hx-button loading level="primary">primary</hx-button>
+        <hx-button loading level="success" >success</hx-button>
+        <hx-button loading level="info" >info</hx-button>
+        <hx-button loading level="warning" >warning</hx-button>
+        <hx-button loading level="danger"  >danger</hx-button>
     </div>
 </template>
   
 <script lang="ts" setup>
-    import Button from '@/lib/Button.vue';
+    import HxButton from '@/lib/HxButton.vue';
 </script>

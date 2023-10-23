@@ -1,18 +1,18 @@
 <demo>尺寸大小</demo>
 <template>
-    <Switch
+    <hx-switch
         v-model="value"
         size="large"
     />
-    <Switch v-model="value" />
-    <Switch
+    <hx-switch v-model="value" />
+    <hx-switch
         v-model="value"
         size="small"
     />
 </template>
   
 <script lang="ts" setup>
-  import Switch from '@/lib/Switch.vue';
+  import HxSwitch from '@/lib/HxSwitch.vue';
   import { ref } from 'vue'
   
   const value = ref(true)

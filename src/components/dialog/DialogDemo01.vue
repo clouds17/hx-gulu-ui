@@ -1,8 +1,8 @@
 <demo>基本用法</demo>
 <template>
     <div>
-        <Button level="primary" @click="open">基本用法</Button>
-        <Dialog
+        <hx-button level="primary" @click="open">基本用法</hx-button>
+        <hx-dialog
             v-model="visible" 
             title="小黄的title"
             width="600px"
@@ -14,14 +14,14 @@
                 <p>内容一</p>
                 <p>内容二</p>
                 
-        </Dialog>
+        </hx-dialog>
     </div>
     
 </template>
   
 <script lang="ts" setup>
-  import Dialog from '@/lib/Dialog.vue';
-  import Button from '@/lib/Button.vue';
+  import HxDialog from '@/lib/HxDialog.vue';
+  import HxButton from '@/lib/HxButton.vue';
   import { ref } from 'vue'
   
   const visible = ref(false)
