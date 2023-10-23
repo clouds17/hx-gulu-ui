@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import cascaderPanel from './cascader-panel.vue';
+import CascaderPanel from './CascaderPanel.vue';
 import { ref, watch } from 'vue';
 
 const props = defineProps({
