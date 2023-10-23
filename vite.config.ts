@@ -31,6 +31,7 @@ const vueDemoPlugin = {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), md(), vueDemoPlugin],
+  base: process.env.NODE_ENV === 'production' ? './' : '/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, 'src')

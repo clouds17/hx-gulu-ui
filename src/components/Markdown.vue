@@ -4,20 +4,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 
 const props = defineProps({
-    path: {
+    content: {
         type: String,
         required: true
     }
 })
 
-const content = ref<string>('')
-
-import(props.path).then(result => {
-    content.value = result?.default || ''
-})
 
 </script>
 

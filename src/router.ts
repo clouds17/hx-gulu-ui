@@ -2,8 +2,11 @@ import { createWebHashHistory, createRouter } from 'vue-router'
 import Markdown from './components/Markdown.vue'
 import { h } from 'vue'
 
-const md = path => h(Markdown, { path: `../markdowm/${path}.md`, key: path })
-import SwitchDemo from "@/views/doc/SwitchPage.vue";
+import intro from './markdowm/intro.md'
+import install from './markdowm/install.md'
+import getStart from './markdowm/getStart.md'
+
+const md = (content, path) => h(Markdown, { content , key: path })
 
 export const router = createRouter({
     history: createWebHashHistory(),
@@ -22,15 +25,15 @@ export const router = createRouter({
                 },
                 {
                     path: 'intro',
-                    component: md('intro')
+                    component: md(intro, 'intro')
                 },
                 {
                     path: 'install',
-                    component: md('install')
+                    component: md(install, 'install')
                 },
                 {
                     path: 'getstart',
-                    component: md('getStart')
+                    component: md(getStart, 'getstart')
                 },
                 {
                     path: 'switch',
