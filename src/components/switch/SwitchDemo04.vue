@@ -12,6 +12,6 @@
     const value2 = ref(true)
 
     const switchChange = (e) => {
-        console.log('改变了', e)
+        console.log('switchChange', e)
     }
 </script>

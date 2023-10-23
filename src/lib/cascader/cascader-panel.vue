@@ -46,8 +46,6 @@ const emits = defineEmits(['update:selectItems', 'close'])
 
 const rightItems = computed(() => {
     let item = props.selectItems[props.level]
-    console.log('item', props.selectItems)
-    console.log('level', props.level);
     
     if (item && item?.children?.length > 0) {
         return item.children
@@ -69,14 +67,10 @@ const clickPanel = (item) => {
 
     // 如果点击小于自己的level, 则降级到和level同
     if (props.level < props.selectItems?.length) {
-        console.log('点击比自己小', props.level);
-        
         selectItemsCopy = selectItemsCopy.splice(0, props.level - 1)
     } 
     
     selectItemsCopy.push(item)
-
-    console.log('selectItemsCopy', selectItemsCopy);
 
     emits('update:selectItems', selectItemsCopy)
 }

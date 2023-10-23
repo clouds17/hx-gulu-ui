@@ -9,7 +9,6 @@ import { useSlots, computed } from 'vue';
 import HxHeader from './HxHeader.vue';
 import HxFooter from './HxFooter.vue';
 const slots = useSlots()
-console.log('slots', slots);
 
 const isVertical =  computed(() => {
     return slots.default().some(tag => {

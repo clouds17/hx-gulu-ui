@@ -28,7 +28,6 @@ export const openDialog = (options) => {
                 cancelText,
                 closeOnClickOverlay,
                 'onUpdate:modelValue': (newValue) => {
-                    console.log('newValue', newValue)
                     if (newValue === false) {
                         app.unmount()
                         div.remove()
