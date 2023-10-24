@@ -7,7 +7,7 @@
 </template>
   
 <script lang="ts" setup>
-  import HxCascader from '@/lib/cascader/HxCascader.vue'; 
+  import { HxCascader } from 'hx-gulu-ui';
   import { ref } from 'vue'
   
   const value = ref([])

@@ -9,9 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import HxContainer from '@/lib/container/HxContainer.vue';
-import HxMain from '@/lib/container/HxMain.vue';
-import HxAside from '@/lib/container/HxAside.vue';
+import { HxContainer, HxAside, HxMain } from 'hx-gulu-ui';
 
 </script>
 

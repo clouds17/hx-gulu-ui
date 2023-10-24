@@ -9,7 +9,7 @@
 </template>
   
 <script lang="ts" setup>
-  import HxSwitch from '@/lib/HxSwitch.vue';
+  import { HxSwitch } from 'hx-gulu-ui';
   import { ref } from 'vue'
   
   const value1 = ref(true)

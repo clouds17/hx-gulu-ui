@@ -36,5 +36,5 @@
 </template>
   
 <script lang="ts" setup>
-    import HxButton from '@/lib/HxButton.vue';
+    import { HxButton } from 'hx-gulu-ui';
 </script>

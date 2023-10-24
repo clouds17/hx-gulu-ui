@@ -10,10 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import HxContainer from '@/lib/container/HxContainer.vue';
-import HxHeader from '@/lib/container/HxHeader.vue';
-import HxMain from '@/lib/container/HxMain.vue';
-import HxFooter from '@/lib/container/HxFooter.vue';
+import { HxContainer, HxHeader, HxMain, HxFooter } from 'hx-gulu-ui';
 </script>
 
 <style lang="scss" scoped>

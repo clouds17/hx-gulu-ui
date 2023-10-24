@@ -7,10 +7,9 @@
 </template>
 
 <script setup lang="ts">
-import HxButton from '@/lib/HxButton.vue';
-import hxMessageBox from '@/lib/hxMessageBox/index'
+import { HxButton, HxMessageBox } from 'hx-gulu-ui';
 const open = () => {
-    hxMessageBox.confirm({
+    HxMessageBox.confirm({
         content: 'default弹框',
         successText: '确定',
         cancelText: '取消',
@@ -25,7 +24,7 @@ const open = () => {
     })
 }
 const open2 = () => {
-    hxMessageBox.confirm({
+    HxMessageBox.confirm({
         content: 'confirm 弹框',
         successText: '确定',
         headerText: '头部标题',

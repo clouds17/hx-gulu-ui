@@ -17,10 +17,8 @@
 </template>
 
 <script setup>
-import HxTabs from '@/lib/tabs/HxTabs.vue';
-import HxTab from '@/lib/tabs/HxTab.vue';
+import { HxTabs, HxTab, HxButton } from 'hx-gulu-ui';
 import { ref } from 'vue';
-import HxButton from '@/lib/HxButton.vue';
 
 const activeTab = ref('tab1')
 const tabPosition = ref('top')

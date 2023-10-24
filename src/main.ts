@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import '@/lib/style/hxUi.scss'
 import './style.scss'
+import 'hx-gulu-ui/dist/lib/hxui.css'
 import App from './App.vue'
 import { router } from './router'
 import 'github-markdown-css'

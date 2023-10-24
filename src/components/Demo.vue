@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import HxButton from '@/lib/HxButton.vue';
+import { HxButton } from 'hx-gulu-ui';
 const props = defineProps({
     component: {
         type: Object

@@ -68,7 +68,7 @@ const clickInner = () => {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $height: 32px;
 .hx-cascader {
     width: 218px;

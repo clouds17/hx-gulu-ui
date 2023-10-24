@@ -6,9 +6,7 @@
 </template>
   
 <script lang="ts" setup>
-  import { openDialog } from '@/lib/openDialog.ts';
-  import HxButton from '@/lib/HxButton.vue';
-  import { ref } from 'vue'
+  import { HxButton, openDialog } from 'hx-gulu-ui';
   
     const open = () => {
         openDialog({

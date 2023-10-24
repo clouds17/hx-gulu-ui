@@ -14,8 +14,7 @@
 </template>
   
 <script lang="ts" setup>
-  import HxDialog from '@/lib/HxDialog.vue';
-  import HxButton from '@/lib/HxButton.vue';
+  import { HxButton, HxDialog } from 'hx-gulu-ui';
   import { ref } from 'vue'
   
   const visible = ref(false)

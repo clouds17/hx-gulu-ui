@@ -2,7 +2,7 @@
     <div class="topnav" :class="{docNav: toggleMenuButtonVisible}">
         <div class="logo">
             <router-link to="/" style="display: flex;">
-                <img :src="$baseImg + 'my-logo2.png'" alt=""/>
+                <img :src="$baseImg + 'my-logo2.png'" alt="首页"/>
             </router-link>
         </div>
         <div class="toggleAside" @click="toggleAside" v-if="toggleMenuButtonVisible">

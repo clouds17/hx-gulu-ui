@@ -11,8 +11,7 @@
 </template>
 
 <script setup>
-import HxTabs from '@/lib/tabs/HxTabs.vue';
-import HxTab from '@/lib/tabs/HxTab.vue';
+import { HxTabs, HxTab } from 'hx-gulu-ui';
 import { ref } from 'vue';
 
 const activeTab = ref('tab2222')
