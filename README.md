@@ -1,6 +1,74 @@
 # hx-ui
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+HX UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
+
+
+
+## 安装
+
+打开终端运行下列命令：
+
+```
+npm install hx-gulu-ui
+```
+
+或
+
+```
+yarn add hx-gulu-ui
+```
+
+
+
+## 开始使用
+
+安装完后在你的代码中引入要使用的组件
+
+```vue
+<script setup>
+import {
+  HxButton,
+  HxSwitch,
+  HxDialog,
+  openDialog,
+  HxTabs,
+  HxTab,
+  HxCascader,
+  CascaderPanel,
+  HxContainer,
+  HxHeader,
+  HxMain,
+  HxFooter,
+  HxAside,
+  HxMessageBox
+} from 'hx-gulu-ui'
+</script>
+```
+
+在main.js中引入样式文件
+
+```vue
+import 'hx-gulu-ui/dist/lib/hxui.css'
+```
+
+就可以开始使用了
+
+**代码示例:**
+
+```vue
+<template>
+  <div>
+	<hx-button>按钮</hx-button>
+	<hr />
+	<hx-switch></hx-switch>
+  </div>
+</template>
+<script setup>
+  import { HxButton, HxSwitch } from "hx-gulu-ui"
+</script>
+```
+
+
 
 ## Switch开关
 
@@ -12,8 +80,8 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 ```vue
 <template>
-  <Switch v-model="value1" />
-  <Switch
+  <hx-switch v-model="value1" />
+  <hx-switch
     v-model="value2"
     class="ml-2"
     style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
@@ -21,6 +89,7 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 </template>
 
 <script lang="ts" setup>
+import { HxSwitch } from 'hx-gulu-ui';
 import { ref } from 'vue'
 
 const value1 = ref(true)
@@ -37,20 +106,21 @@ const value2 = ref(true)
 
 ```vue
 <template>
-  <Switch
+  <hx-switch
     v-model="value"
     size="large"
   />
   <br />
-  <Switch v-model="value" />
+  <hx-switch v-model="value" />
   <br />
-  <Switch
+  <hx-switch
     v-model="value"
     size="small"
   />
 </template>
 
 <script lang="ts" setup>
+import { HxSwitch } from 'hx-gulu-ui';
 import { ref } from 'vue'
 
 const value = ref(true)
@@ -67,14 +137,14 @@ const value = ref(true)
 
 ```vue
 <template>
-  <Switch
+  <hx-switch
     v-model="value1"
     class="mb-2"
     active-text="Pay by month"
     inactive-text="Pay by year"
   />
   <br />
-  <Switch
+  <hx-switch
     v-model="value2"
     class="mb-2"
     style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949"
@@ -82,13 +152,13 @@ const value = ref(true)
     inactive-text="Pay by year"
   />
   <br />
-  <Switch
+  <hx-switch
     v-model="value3"
     inline-prompt
     active-text="是"
     inactive-text="否"
   />
-  <Switch
+  <hx-switch
     v-model="value4"
     class="ml-2"
     inline-prompt
@@ -96,7 +166,7 @@ const value = ref(true)
     active-text="Y"
     inactive-text="N"
   />
-  <Switch
+  <hx-switch
     v-model="value6"
     class="ml-2"
     width="60"
@@ -104,7 +174,7 @@ const value = ref(true)
     active-text="超出省略"
     inactive-text="超出省略"
   />
-  <Switch
+  <hx-switch
     v-model="value5"
     class="ml-2"
     inline-prompt
@@ -115,6 +185,7 @@ const value = ref(true)
 </template>
 
 <script lang="ts" setup>
+import { HxSwitch } from 'hx-gulu-ui';
 import { ref } from 'vue'
 
 const value1 = ref(true)
@@ -134,11 +205,12 @@ const value6 = ref(true)
 
 ```vue
 <template>
-  <Switch v-model="value1" disabled />
-  <Switch v-model="value2" class="ml-2" />
+  <hx-switch v-model="value1" disabled />
+  <hx-switch v-model="value2" class="ml-2" />
 </template>
 
 <script lang="ts" setup>
+import { HxSwitch } from 'hx-gulu-ui';
 import { ref } from 'vue'
 
 const value1 = ref(true)
@@ -162,9 +234,9 @@ const value2 = ref(true)
 //  large | normal | small
 <template>
     <div>
-        <Button size='large' >large</Button>
-        <Button>normal</Button>
-        <Button size='small'>small</Button>
+        <hx-button size='large' >large</hx-button>
+        <hx-button>normal</hx-button>
+        <hx-button size='small'>small</hx-button>
     </div>
 </template>
 
@@ -176,12 +248,12 @@ const value2 = ref(true)
 // 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
 <template>
 	<div>
-		<Button level="default" >default</Button>
-        <Button level="primary">primary</Button>
-        <Button level="success" >success</Button>
-        <Button level="info" >info</Button>
-        <Button level="warning" >warning</Button>
-        <Button level="danger"  >danger</Button>
+		<hx-button level="default" >default</hx-button>
+        <hx-button level="primary">primary</hx-button>
+        <hx-button level="success" >success</hx-button>
+        <hx-button level="info" >info</hx-button>
+        <hx-button level="warning" >warning</hx-button>
+        <hx-button level="danger"  >danger</hx-button>
 	</div>
 </template>
 ```
@@ -193,12 +265,12 @@ const value2 = ref(true)
 ```vue
 <template>
 	<div>
-		<Button plain level="default" >default</Button>
-        <Button plain level="primary">primary</Button>
-        <Button plain level="success" >success</Button>
-        <Button plain level="info" >info</Button>
-        <Button plain level="warning" >warning</Button>
-        <Button plain level="danger"  >danger</Button>
+		<hx-button plain level="default" >default</hx-button>
+        <hx-button plain level="primary">primary</hx-button>
+        <hx-button plain level="success" >success</hx-button>
+        <hx-button plain level="info" >info</hx-button>
+        <hx-button plain level="warning" >warning</hx-button>
+        <hx-button plain level="danger"  >danger</hx-button>
 	</div>
 </template>
 ```
@@ -208,12 +280,12 @@ const value2 = ref(true)
 ```vue
 <template>
 	<div>
-		<Button round plain level="default" >default</Button>
-        <Button round plain level="primary">primary</Button>
-        <Button round plain level="success" >success</Button>
-        <Button round plain level="info" >info</Button>
-        <Button round plain level="warning" >warning</Button>
-        <Button round plain level="danger"  >danger</Button>
+		<hx-button round plain level="default" >default</hx-button>
+        <hx-button round plain level="primary">primary</hx-button>
+        <hx-button round plain level="success" >success</hx-button>
+        <hx-button round plain level="info" >info</hx-button>
+        <hx-button round plain level="warning" >warning</hx-button>
+        <hx-button round plain level="danger"  >danger</hx-button>
 	</div>
 </template>
 ```
@@ -227,12 +299,12 @@ theme： button | link | text
 ```vue
 <template>
 	<div>
-		<Button level="default" >default</Button>
-        <Button theme="button" level="primary">primary</Button>
-        <Button theme="link " level="success" >success</Button>
-        <Button theme="link " level="info" >info</Button>
-        <Button theme="text" level="warning" >warning</Button>
-        <Button theme="text" level="danger"  >danger</Button>
+		<hx-button level="default" >default</hx-button>
+        <hx-button theme="button" level="primary">primary</hx-button>
+        <hx-button theme="link " level="success" >success</hx-button>
+        <hx-button theme="link " level="info" >info</hx-button>
+        <hx-button theme="text" level="warning" >warning</hx-button>
+        <hx-button theme="text" level="danger"  >danger</hx-button>
 	</div>
 </template>
 ```
@@ -246,12 +318,12 @@ disabled
 ```vue
 <template>
 	<div>
-		<Button disabled level="default" >default</Button>
-        <Button disabled theme="button" level="primary">primary</Button>
-        <Button disabled theme="link " level="success" >success</Button>
-        <Button disabled theme="link " level="info" >info</Button>
-        <Button disabled theme="text" level="warning" >warning</Button>
-        <Button disabled theme="text" level="danger"  >danger</Button>
+		<hx-button disabled level="default" >default</hx-button>
+        <hx-button disabled theme="button" level="primary">primary</hx-button>
+        <hx-button disabled theme="link " level="success" >success</hx-button>
+        <hx-button disabled theme="link " level="info" >info</hx-button>
+        <hx-button disabled theme="text" level="warning" >warning</hx-button>
+        <Buthx-buttonton disabled theme="text" level="danger"  >danger</hx-button>
 	</div>
 </template>
 ```
@@ -265,12 +337,12 @@ loading
 ```vue
 <template>
 	<div>
-		<Button loading level="default" >default</Button>
-        <Button loading theme="button" level="primary">primary</Button>
-        <Button loading theme="link " level="success" >success</Button>
-        <Button loading theme="link " level="info" >info</Button>
-        <Button loading theme="text" level="warning" >warning</Button>
-        <Button loading theme="text" level="danger"  >danger</Button>
+		<hx-button loading level="default" >default</hx-button>
+        <hx-button loading theme="button" level="primary">primary</hx-button>
+        <hx-button loading theme="link " level="success" >success</hx-button>
+        <hx-button loading theme="link " level="info" >info</hx-button>
+        <hx-button loading theme="text" level="warning" >warning</hx-button>
+        <hx-button loading theme="text" level="danger"  >danger</hx-button>
 	</div>
 </template>
 ```
@@ -299,7 +371,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 ```vue
 <template>
-  <DialogVue 
+  <hx-dialog 
     v-model="visible" 
     title="小黄的title"
     width="600px"
@@ -311,9 +383,10 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
             <p>内容一</p>
             <p>内容二</p>
             
-   </DialogVue>
+   </hx-dialog>
 </template>
 <script setup lang="ts">
+    import { HxDialog } from 'hx-gulu-ui';
 	const visible = ref(false)
 </script>
 ```
@@ -324,9 +397,9 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 设置了`title`具名插槽 和 `footer` 具名插槽，可以自定义头部和底部
 
-```
+```vue
 <template>
-   <DialogVue 
+   <hx-dialog 
        v-model="visible" 
    >
         <template #title>
@@ -338,9 +411,10 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
         	<Button level="primary" @click="">我点确定</Button>
         	<Button plain @click="">我点取消</Button>
         </template>
-   </DialogVue>
+   </hx-dialog>
 </template>
 <script setup lang="ts">
+    import { HxDialog } from 'hx-gulu-ui';
 	const visible = ref(false)
 </script>
 ```
@@ -351,17 +425,18 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 属性 `close-on-click-overlay` 默认 `true`
 
- ```
+ ```vue
 <template>
-   <DialogVue 
+   <hx-dialog 
        v-model="visible" 
        :close-on-click-overlay = "false"
    >
         <p>内容一</p>
         <p>内容二</p>
-   </DialogVue>
+   </hx-dialog>
 </template>
 <script setup lang="ts">
+    import { HxDialog } from 'hx-gulu-ui';
 	const visible = ref(false)
 </script>
  ```
@@ -372,18 +447,19 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 属性 `beforeClose` 是一个函数, return false 时 不会关闭弹框
 
-```
+```vue
 <template>
-   <DialogVue 
+   <hx-dialog 
        v-model="visible" 
        :close-on-click-overlay = "false"
        :beforeClose = "onBeforeClose"
    >
         <p>内容一</p>
         <p>内容二</p>
-   </DialogVue>
+   </hx-dialog>
 </template>
 <script setup lang="ts">
+    import { HxDialog } from 'hx-gulu-ui';
 	const visible = ref(false)
 	const onBeforeClose = () => {
 		// 可以进行验证啥的，返回值不是false时， 函数执行完关闭弹框
@@ -399,7 +475,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 类似 ElMessageBox 消息弹框
 
-```
+```vue
 <template>
     <div>
         <Button @click="open">按钮</Button>
@@ -408,7 +484,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 <script setup lang="ts">
 
-import { openDialog } from '@/lib/openDialog.ts';
+import { openDialog, HxButton } from 'hx-gulu-ui';
 
 const open = () => {
     openDialog({
@@ -446,16 +522,17 @@ Tabs 组件提供了选项卡功能，可以通过 `value` 属性来指定当前
 ```vue
 <template>
     <div>
-        <Tabs v-model="activeTab">
-            <Tab title="tab1">内容1</Tab>
-            <Tab title="tab22222">内容2</Tab>
-        </Tabs>
+        <hx-tabs v-model="activeTab">
+            <hx-tab title="tab1">内容1</hx-tab>
+            <hx-tab title="tab2222">内容2</hx-tab>
+            <hx-tab title="tab3">内容3</hx-tab>
+            <hx-tab title="tab4">内容4</hx-tab>
+        </hx-tabs>
     </div>
 </template>
 
 <script setup>
-import Tabs from '@/lib/Tabs.vue';
-import Tab from '@/lib/Tab.vue';
+import { HxTabs, HxTab } from 'hx-gulu-ui';
 import { ref } from 'vue';
 const activeTab = ref('tab22222')
 
@@ -484,8 +561,7 @@ const activeTab = ref('tab22222')
 </template>
 
 <script setup>
-import Tabs from '@/lib/Tabs.vue';
-import Tab from '@/lib/Tab.vue';
+import { HxTabs, HxTab } from 'hx-gulu-ui';
 import { ref } from 'vue';
 
 const activeTab = ref('tab1')
@@ -505,25 +581,23 @@ const activeTab = ref('tab1')
 <template>
     <div>
         <div style="padding-bottom: 30px">
-            <Button @click="changeDirection('top')">top</Button>
-            <Button @click="changeDirection('right')">right</Button>
-            <Button @click="changeDirection('bottom')">bottom</Button>
-            <Button @click="changeDirection('left')">left</Button>
+            <hx-button @click="changeDirection('top')">top</hx-button>
+            <hx-button @click="changeDirection('right')">right</hx-button>
+            <hx-button @click="changeDirection('bottom')">bottom</hx-button>
+            <hx-button @click="changeDirection('left')">left</hx-button>
         </div>
-        <Tabs v-model="activeTab" :tab-position="tabPosition" >
-            <Tab title="tab1">内容1</Tab>
-            <Tab title="tab2222">内容2</Tab>
-            <Tab title="tab3">内容3</Tab>
-            <Tab title="tab4">内容4</Tab>
-        </Tabs>
+        <hx-tabs v-model="activeTab" :tab-position="tabPosition" >
+            <hx-tab title="tab1">内容1</hx-tab>
+            <hx-tab title="tab2222">内容2</hx-tab>
+            <hx-tab title="tab3">内容3</hx-tab>
+            <hx-tab title="tab4">内容4</hx-tab>
+        </hx-tabs>
     </div>
 </template>
 
 <script setup>
-import Tabs from '@/lib/Tabs.vue';
-import Tab from '@/lib/Tab.vue';
+import { HxTabs, HxTab, HxButton } from 'hx-gulu-ui';
 import { ref } from 'vue';
-import Button from '@/lib/Button.vue';
 
 const activeTab = ref('tab1')
 const tabPosition = ref('top')
@@ -553,10 +627,9 @@ const changeDirection = (direction) => {
 </template>
 
 <script setup lang="ts">
-import HxButton from '@/lib/HxButton.vue';
-import hxMessageBox from '@/lib/hxMessageBox/index'
+import { HxButton, HxMessageBox } from 'hx-gulu-ui';
 const open = () => {
-    hxMessageBox.confirm({
+    HxMessageBox.confirm({
         content: '消息内容',
         successText: '确定',
         cancelText: '取消',
@@ -570,7 +643,301 @@ const open = () => {
     })
 }
 </script>
+
 ```
+
+
+
+## cascader 级联选择器
+
+### 基础用法
+
+```vue
+<template>
+    <hx-cascader 
+        v-model="value"
+        :options="options"
+    ></hx-cascader>
+</template>
+  
+<script lang="ts" setup>
+  import { HxCascader } from 'hx-gulu-ui';
+  import { ref } from 'vue'
+  
+  const value = ref([])
+
+  const options = [
+    {
+      value: 'guide',
+      label: 'Guide',
+      children: [
+        {
+          value: 'disciplines',
+          label: 'Disciplines',
+          children: [
+            {
+              value: 'consistency',
+              label: 'Consistency',
+            },
+            {
+              value: 'feedback',
+              label: 'Feedback',
+            },
+            {
+              value: 'efficiency',
+              label: 'Efficiency',
+            },
+            {
+              value: 'controllability',
+              label: 'Controllability',
+            },
+          ],
+        },
+        {
+          value: 'navigation',
+          label: 'Navigation',
+          children: [
+            {
+              value: 'side nav',
+              label: 'Side Navigation',
+            },
+            {
+              value: 'top nav',
+              label: 'Top Navigation',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: 'component',
+      label: 'Component',
+      children: [
+        {
+          value: 'basic',
+          label: 'Basic',
+          children: [
+            {
+              value: 'layout',
+              label: 'Layout',
+            },
+            {
+              value: 'color',
+              label: 'Color',
+            },
+            {
+              value: 'typography',
+              label: 'Typography',
+            },
+            {
+              value: 'icon',
+              label: 'Icon',
+            },
+            {
+              value: 'button',
+              label: 'Button',
+            },
+          ],
+        },
+        {
+          value: 'form',
+          label: 'Form',
+          children: [
+            {
+              value: 'radio',
+              label: 'Radio',
+            },
+            {
+              value: 'checkbox',
+              label: 'Checkbox',
+            },
+            {
+              value: 'input',
+              label: 'Input',
+            },
+            {
+              value: 'input-number',
+              label: 'InputNumber',
+            },
+            {
+              value: 'select',
+              label: 'Select',
+            },
+            {
+              value: 'cascader',
+              label: 'Cascader',
+            },
+            {
+              value: 'switch',
+              label: 'Switch',
+            },
+            {
+              value: 'slider',
+              label: 'Slider',
+            },
+            {
+              value: 'time-picker',
+              label: 'TimePicker',
+            },
+            {
+              value: 'date-picker',
+              label: 'DatePicker',
+            },
+            {
+              value: 'datetime-picker',
+              label: 'DateTimePicker',
+            },
+            {
+              value: 'upload',
+              label: 'Upload',
+            },
+            {
+              value: 'rate',
+              label: 'Rate',
+            },
+            {
+              value: 'form',
+              label: 'Form',
+            },
+          ],
+        },
+        {
+          value: 'data',
+          label: 'Data',
+          children: [
+            {
+              value: 'table',
+              label: 'Table',
+            },
+            {
+              value: 'tag',
+              label: 'Tag',
+            },
+            {
+              value: 'progress',
+              label: 'Progress',
+            },
+            {
+              value: 'tree',
+              label: 'Tree',
+            },
+            {
+              value: 'pagination',
+              label: 'Pagination',
+            },
+            {
+              value: 'badge',
+              label: 'Badge',
+            },
+          ],
+        },
+        {
+          value: 'notice',
+          label: 'Notice',
+          children: [
+            {
+              value: 'alert',
+              label: 'Alert',
+            },
+            {
+              value: 'loading',
+              label: 'Loading',
+            },
+            {
+              value: 'message',
+              label: 'Message',
+            },
+            {
+              value: 'message-box',
+              label: 'MessageBox',
+            },
+            {
+              value: 'notification',
+              label: 'Notification',
+            },
+          ],
+        },
+        {
+          value: 'navigation',
+          label: 'Navigation',
+          children: [
+            {
+              value: 'menu',
+              label: 'Menu',
+            },
+            {
+              value: 'tabs',
+              label: 'Tabs',
+            },
+            {
+              value: 'breadcrumb',
+              label: 'Breadcrumb',
+            },
+            {
+              value: 'dropdown',
+              label: 'Dropdown',
+            },
+            {
+              value: 'steps',
+              label: 'Steps',
+            },
+          ],
+        },
+        {
+          value: 'others',
+          label: 'Others',
+          children: [
+            {
+              value: 'dialog',
+              label: 'Dialog',
+            },
+            {
+              value: 'tooltip',
+              label: 'Tooltip',
+            },
+            {
+              value: 'popover',
+              label: 'Popover',
+            },
+            {
+              value: 'card',
+              label: 'Card',
+            },
+            {
+              value: 'carousel',
+              label: 'Carousel',
+            },
+            {
+              value: 'collapse',
+              label: 'Collapse',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: 'resource',
+      label: 'Resource',
+      children: [
+        {
+          value: 'axure',
+          label: 'Axure Components',
+        },
+        {
+          value: 'sketch',
+          label: 'Sketch Templates',
+        },
+        {
+          value: 'docs',
+          label: 'Design Documentation',
+        },
+      ],
+    },
+  ]
+  </script>
+```
+
+
 
 
 
@@ -579,17 +946,15 @@ const open = () => {
 ```vue
 <template>
     <div>
-        <p>弹窗类型: default 默认显示确认，取消  /  confirm 仅显示确认</p>
         <hx-button @click="open">default</hx-button>
         <hx-button @click="open2">confirm</hx-button>
     </div>
 </template>
 
 <script setup lang="ts">
-import HxButton from '@/lib/HxButton.vue';
-import hxMessageBox from '@/lib/hxMessageBox/index'
+import { HxButton, HxMessageBox } from 'hx-gulu-ui';
 const open = () => {
-    hxMessageBox.confirm({
+    HxMessageBox.confirm({
         content: 'default弹框',
         successText: '确定',
         cancelText: '取消',
@@ -604,11 +969,11 @@ const open = () => {
     })
 }
 const open2 = () => {
-    hxMessageBox.confirm({
+    HxMessageBox.confirm({
         content: 'confirm 弹框',
         successText: '确定',
         headerText: '头部标题',
-        type: 'confirm'
+        type: 'comfirm'
     })
     .then(() => {
       console.log('success')
@@ -630,10 +995,9 @@ const open2 = () => {
 </template>
 
 <script setup lang="ts">
-import HxButton from '@/lib/HxButton.vue';
-import hxMessageBox from '@/lib/hxMessageBox/index'
+import { HxButton, HxMessageBox } from 'hx-gulu-ui';
 const open = () => {
-    hxMessageBox.confirm({
+    HxMessageBox.confirm({
         content: '点击遮罩层可以关闭',
         successText: '确定',
         cancelText: '取消',
