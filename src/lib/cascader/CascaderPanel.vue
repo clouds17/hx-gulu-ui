@@ -23,7 +23,7 @@
     </template>
 </template>
 
-<script setup lang="ts">
+<script setup >
 name: "cascader-panel"
 import { computed } from 'vue';
 

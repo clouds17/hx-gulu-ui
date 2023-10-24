@@ -1,5 +1,5 @@
 import { createApp, h } from "vue"
-import HxDialog from '@/lib/HxDialog.vue';
+import HxDialog from './HxDialog.vue';
 
 export const openDialog = (options) => {
     const { 

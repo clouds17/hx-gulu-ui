@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, watch, computed } from 'vue';
+import { watch, computed } from 'vue';
     defineOptions({
       inheritAttrs: false
     })

@@ -8,7 +8,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hx-aside {
     overflow: auto;
     box-sizing: border-box;

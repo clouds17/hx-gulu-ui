@@ -11,7 +11,7 @@ export { default as HxMain } from './container/HxMain.vue';
 export { default as HxFooter } from './container/HxFooter.vue';
 export { default as HxAside } from './container/HxAside.vue';
 export { default as hxMessageBox } from './hxMessageBox/module.vue';
-import HxMessageBox from "./hxMessageBox/index"
+import HxMessageBox from "./hxMessageBox/index.ts"
 export { HxMessageBox }
 
-export { openDialog as openDialog } from './openDialog'
+export { openDialog as openDialog } from './openDialog.ts'

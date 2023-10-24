@@ -3,6 +3,11 @@
         <slot />
     </div>
 </template>
+
+<script lang="ts" setup>
+
+</script>
+
 <style lang="scss" >
 .hx-main {
     --hx-main-padding: 20px;

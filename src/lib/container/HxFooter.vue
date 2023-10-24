@@ -8,7 +8,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hx-footer {
     --hx-footer-padding: 0 20px;
     --hx-footer-height: 60px;
